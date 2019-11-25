@@ -1,24 +1,40 @@
-# README
+# E-Commerce Vente d'images de Chats ! 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+## L'Equipe : 
 
-* Ruby version
+  ~ Véronique
+  ~ Mack
+  ~ Olivier
+  ~ Matthias
+  ~ Julien
 
-* System dependencies
 
-* Configuration
+## Tester l'application 
 
-* Database creation
+  ### En local : 
 
-* Database initialization
+  > 
+  > git clone https://github.com/140ch204/40_ecomm
+  > 
+  > git db:drop 
+  >
+  > git db:create 
+  >
+  > git db:migrate
+  >
+  > git db:seed
+  >
 
-* How to run the test suite
+  Puis aller dans le navigateur à
 
-* Services (job queues, cache servers, search engines, etc.)
+    http://localhost:3000/
 
-* Deployment instructions
+  ### sur Heroku : 
 
-* ...
+    ~ https://cat-pic-prod.herokuapp.com/
+
+    ~ https://cat-pic-dev.herokuapp.com/
+
+
+
