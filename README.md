@@ -3,11 +3,15 @@
 
 ## L'Equipe : 
 
-  ~ Véronique
-  ~ Mack
-  ~ Olivier
-  ~ Matthias
-  ~ Julien
+  - Véronique
+
+  - Mack
+
+  - Olivier
+
+  - Matthias
+
+  - Julien
 
 
 ## Tester l'application 
@@ -30,13 +34,13 @@
 
   Puis aller dans le navigateur à
 
-    http://localhost:3000/
+    - http://localhost:3000/
 
   ### sur Heroku : 
 
-    ~ https://cat-pic-prod.herokuapp.com/
+    - https://cat-pic-prod.herokuapp.com/
 
-    ~ https://cat-pic-dev.herokuapp.com/
+    - https://cat-pic-dev.herokuapp.com/
 
 
 
