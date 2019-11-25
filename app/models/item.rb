@@ -1,4 +1,7 @@
 class Item < ApplicationRecord
+  has_many :ordered_items
+  has_many :orders, through: :ordered_items
+
   validates :title,
     presence: true,
     uniqueness: true
