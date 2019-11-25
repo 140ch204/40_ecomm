@@ -6,7 +6,7 @@ class Item < ApplicationRecord
   validates :image_url,
     presence: true,
     uniqueness: true,
-    format: { with: /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/ }
+    format: { with: /\A[h]t{2}[p]s?[:]\/{2}(\S+)[.](\D{2,3}\z)/ }
 
   validates :description,
     presence: true
