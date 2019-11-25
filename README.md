@@ -25,6 +25,8 @@
   >
   > git db:seed
   >
+  > rails s
+  >
 
   Puis aller dans le navigateur à
 
