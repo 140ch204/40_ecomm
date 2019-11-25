@@ -70,3 +70,5 @@ gem 'dotenv-rails', '~> 2.7'
 gem 'devise'
 
 gem 'stripe', '~> 5.8'
+
+gem "letter_opener", :group => :development
