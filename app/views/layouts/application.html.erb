@@ -41,9 +41,9 @@
 
 <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <script src="https://kit.fontawesome.com/83a9a1a78c.js" crossorigin="anonymous"></script>
   </head>
-
   <body>
           <div class="header-outs" id="home">
             <div class="header-bar">
@@ -117,22 +117,24 @@
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Pages
+                            Connexion
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="nav-link" href="icon.html">404 Page</a>
-                            <a class="nav-link " href="typography.html">Typography</a>
+                            <%= link_to "LOGIN", new_user_session_path(), class:"nav-link",method: :get %>
+                            <%= link_to "SIGN'UP", new_user_registration_path(), class:"nav-link", method: :get %>
                             </div>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Product
+                            Pics
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="nav-link" href="product.html">Kids Toys</a>
-                            <a class="nav-link " href="product.html">Dolls</a>
-                            <a class="nav-link " href="product.html">Key Toys</a>
-                            <a class="nav-link " href="product.html">Boys Toys</a>
+                            <a class="nav-link" href="product.html">Siamese</a>
+                            <a class="nav-link " href="product.html">Persian</a>
+                            <a class="nav-link " href="product.html">Maine Coon</a>
+                            <a class="nav-link " href="product.html">Ragdoll</a>
+                            <a class="nav-link " href="product.html">Bengal</a>
+                            <a class="nav-link " href="product.html">Birman</a>
                             </div>
                         </li>
                         <li class="nav-item">
@@ -153,7 +155,7 @@
                 <div class="col-lg-6 col-md-6 address-w3l-right text-center">
                 <div class="address-gried ">
                     <span class="far fa-map"></span>
-                    <p>2 Rue du Chat qui Pêche<br>FRANCE Paris
+                    <p>2 Rue du Chat qui Pêche, 75005 Paris<br>FRANCE 
                     <p>
                 </div>
                 <div class="address-gried mt-3">
@@ -205,10 +207,13 @@
         <footer class="py-lg-4 py-md-3 py-sm-3 py-3 text-center">
             <div class="copy-agile-right">
                 <p> 
-                © 2018 Toys-Shop. All Rights Reserved | Design by <a href="http://www.W3Layouts.com" target="_blank">W3Layouts</a>
+                © 2019 Neko Pics. All Rights Reserved | Design by <a href="http://www.W3Layouts.com" target="_blank">W3Layouts</a>
                 </p>
             </div>
         </footer>
         <!-- //footer -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   </body>
 </html>
