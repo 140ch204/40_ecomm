@@ -12,12 +12,12 @@
  *
  *= require_tree .
  *= require_self
- *= require fontawesome-all.min
- *= require jquery-ui1
  *= require flexslider
+ *= require jquery-ui
  *= require easy-responsive-tabs
  *= require creditly
  *= require checkout
+ *= require fontawesome
  *= require bootstrap
  *= require style
  */
