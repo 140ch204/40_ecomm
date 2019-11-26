@@ -2,47 +2,13 @@
 
 </br></br>
 <div class='container text-center'>
-  <h1 class="display-5">Bienvenue sur le profil de <%= @user.first_name %> <%= @user.last_name %>.</h1>
+  <h1 class="display-5">Bienvenue sur votre profil.</h1>
 </div></br></br>
   
   <ul>
-    <li>Votre description:  "<%= @user.description %>".</li>
     <li>Votre email: "<%= @user.email %>".</li> 
     </br>
-    <li>Voici l'ensemble des évènements  de <%= @user.first_name %>:</li></br>
-    <li><%= link_to 'Editer le profil',  edit_user_registration_path(@user.id) %></li>
+    <li><%= link_to 'Editer le profil',  edit_user_registration_path(@user.id), class: "btn btn-primary" %></li>
   </ul>
 
-  <%if @user.avatar.attached?%>
-    <%= image_tag @user.avatar, alt: 'avatar' %>
-  <%else%>
-    <p>Vous n'avez aucun avatar</p>
-  <%end%>
-
-<h3>Changer d'avatar ?</h3>
-<%= form_tag user_avatars_path(@user), multipart: true do %>
-  <%= file_field_tag :avatar %>
-  <%= submit_tag "mettre à jour" %>
-<% end %>
-
 </div></br></br>
-
-<div class='container text-center'>
-  <div class='card-deck'>
-    <div class="row">
-        <% events.each do |event| %> 
-          <div class="card border-primary mb-3" style="min-width: 20rem;">
-            <div class="card-body">
-                <h5 class="card-title"><%= event.title %></h5>
-                
-                <%= link_to 'Clique pour en savoir plus.', event_path(@id = event.id) %>
-
-            </div>
-            <div class="card-footer">
-              <small class="text-muted"><%= event.created_at.strftime("Créé le %d/%m/%Y") %>.</small>
-            </div>    
-          </div>
-        <% end %>
-    </div>
-  </div>
-</div>

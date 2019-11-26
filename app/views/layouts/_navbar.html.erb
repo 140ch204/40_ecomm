@@ -56,19 +56,24 @@
             <div>
                 <ul class="navbar-nav">
                     <% unless user_signed_in? %>
-                    <li class="nav-item">
-                        <%= link_to "Log in", new_user_session_path, class: "nav-link" %>
-                    </li>
-                    <li class="nav-item">
-                        <%= link_to "Sign up", new_user_registration_path, class: "nav-link" %>
-                    </li>
+                        <li class="nav-item">
+                            <%= link_to "Log in", new_user_session_path, class: "nav-link" %>
+                        </li>
+                        <li class="nav-item">
+                            <%= link_to "Sign up", new_user_registration_path, class: "nav-link" %>
+                        </li>
                     <% else %>
-                    <li class="nav-item">
-                        <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" %>
-                    </li>
-                    <li class="nav-item">
-                        <%= link_to "My account", user_path(current_user.id), class: "nav-link" %>
-                    </li>
+                        <li class="nav-item">
+                            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" %>
+                        </li>
+                        <li class="nav-item">
+                            <%= link_to "My account", user_path(current_user.id), class: "nav-link" %>
+                        </li>
+                        <li>
+                            <% if current_user.admin? %>
+                                <%= link_to "My admin account", admin_root_path, class: "nav-link" %>
+                            <% end %>
+                        </li>
                     <% end %>
                 </ul>
             </div>
