@@ -26,7 +26,8 @@ class ItemsController < ApplicationController
   end
 
   def update
-    permited_params = params.require().permit(:title, :price, :description, :image_url)
+    # Waiting for forms
+    #permited_params = params.require().permit(:title, :price, :description, :image_url)
     @item = Item.find(params[:id])
     @item.update(permited_params)
     redirect_to item_path(params[:id])
