@@ -14,7 +14,7 @@ user_count = 0
 end
 puts "#{user_count} users created"
 
-Item.destroy_all
+# Item.destroy_all
 item_count = 0
 image_url = ["http://www.ict-historic.eu/wp-content/uploads/2018/11/magnifiques-chatons-type-siamois-1_450x338z10.jpg",	
 			"http://www.ict-historic.eu/wp-content/uploads/2018/11/1f9ec56504c1fbb1034fac601ec5ce56-1.jpg",
