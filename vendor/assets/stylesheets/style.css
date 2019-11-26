@@ -1567,4 +1567,11 @@ h3.typo-main-heading {
 }
 }
 /*--//responsive--*/
-
+.bottom-info-2 {
+    background:rgba(0, 0, 0, 0.7);
+    padding: 2em 2em;
+    width: 60%;
+    text-align: center;
+    top: 166px;
+    left: 25%;
+}
