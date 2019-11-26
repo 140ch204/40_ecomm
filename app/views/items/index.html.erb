@@ -1,0 +1,8 @@
+<% @item.each do |item|%>
+<%= item.title %>
+<%= item.description %>
+<%= item.price %>
+<%= item.image_url %>
+<%= link_to "Plus d'infos", item_path(item.id)%>
+<% end %>
+
