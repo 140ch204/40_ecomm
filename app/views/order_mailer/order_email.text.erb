@@ -1,0 +1,11 @@
+Purchase confirmation
+
+Order N° : <%= @order.id %>
+
+Thanks for purchasing : 
+
+<% @items.each do |item| %>
+  <p><%= item.title %></p>
+  <p><%= item.description %></p>
+  <p><%= item.price %></p>
+<% end %>
