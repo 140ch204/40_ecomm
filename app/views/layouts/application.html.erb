@@ -45,32 +45,13 @@
 </head>
 
 <body>
-	<div class="header-outs" id="home">
-		<div class="header-bar">
-			<div class="info-top-grid">
-				<div class="info-contact-agile">
-					<ul>
-						<li>
-							<span class="fas fa-phone-volume"></span>
-							<p>+(33)01 39 65 32 13</p>
-						</li>
-						<li>
-							<span class="fas fa-envelope"></span>
-							<p><a href="mailto:info@example.com">neko@nekopics.com</a></p>
-						</li>
-						<li>
-						</li>
-					</ul>
-				</div>
-			</div>
 
-			<%= render 'layouts/navbar'  %>
-		</div>
-	</div>
-	<%= render 'layouts/flash'  %>
+ 	<%= render 'layouts/navbar' unless @disable_nav %>
+	<%= render 'layouts/flash'  unless @disable_nav %>
+
 	<%= yield %>
-	<!-- footer -->
+
 	<%= render 'layouts/footer'  %>
-	<!-- //footer -->
+	
 </body>
 </html>

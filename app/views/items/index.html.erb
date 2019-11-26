@@ -4,10 +4,10 @@
 
 			<% @items.each do |item| %>
 				<div class="card border-primary mb-3" style="min-width: 20rem;">
+					<img src="<%= item.image_url %>" class="card-img-top">
 					<%= item.title %>
 					<%= item.description %>
-					<%= item.price %>
-					<%= item.image_url %>
+					<%= item.price %>			
 					<%= link_to "Show", item_path(item.id), class: "btn-primary"%>
 				</div>
 			<% end %>
