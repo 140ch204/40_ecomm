@@ -1,0 +1,14 @@
+<% events = @admin %>
+
+</br></br>
+<div class='container text-center'>
+  <h1 class="display-5">Bienvenue sur votre profil.</h1>
+</div></br></br>
+  
+  <ul>
+    <li>Votre email: "<%= @user.email %>".</li> 
+    </br>
+    <li><%= link_to 'Editer le profil',  edit_user_registration_path(@user.id), class: "btn btn-primary" %></li>
+  </ul>
+
+</div></br></br>
