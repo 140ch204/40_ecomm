@@ -43,59 +43,64 @@
             <li class="nav-item active">
                 <%= link_to "home", root_path, class: "nav-link" %>
             </li>
-            <!-- <li class="nav-item">
-                <a href="about.html" class="nav-link">About</a>
-            </li>
-            <li class="nav-item">
-                <a href="service.html" class="nav-link">Service</a>
-            </li> -->
-            <li class="nav-item">
-                <%= link_to "Shop Now", items_path, class: "nav-link" %>
-            </li>
+<!-- <li class="nav-item">
+<a href="about.html" class="nav-link">About</a>
+</li>
+<li class="nav-item">
+<a href="service.html" class="nav-link">Service</a>
+</li> -->
+<li class="nav-item">
+    <%= link_to "Shop Now", items_path, class: "nav-link" %>
+</li>
 
-            <div>
-                <ul class="navbar-nav">
-                    <% unless user_signed_in? %>
-                    <li class="nav-item">
-                        <%= link_to "Log in", new_user_session_path, class: "nav-link" %>
-                    </li>
-                    <li class="nav-item">
-                        <%= link_to "Sign up", new_user_registration_path, class: "nav-link" %>
-                    </li>
-                    <% else %>
-                    <li class="nav-item">
-                        <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" %>
-                    </li>
-                    <li class="nav-item">
-                        <%= link_to "My account", user_path(current_user.id), class: "nav-link" %>
-                    </li>
-                    <% end %>
-                </ul>
-            </div>
-            <!-- <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Pages
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="nav-link" href="icon.html">404 Page</a>
-                    <a class="nav-link " href="typography.html">Typography</a>
-                </div>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Product
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="nav-link" href="product.html">Kids Toys</a>
-                    <a class="nav-link " href="product.html">Dolls</a>
-                    <a class="nav-link " href="product.html">Key Toys</a>
-                    <a class="nav-link " href="product.html">Boys Toys</a>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a href="contact.html" class="nav-link">Contact</a>
-            </li> -->
-        </ul>
-    </div>
-</nav>
+<div>
+    <ul class="navbar-nav">
+        <% unless user_signed_in? %>
+        <li class="nav-item">
+            <%= link_to "Log in", new_user_session_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+            <%= link_to "Sign up", new_user_registration_path, class: "nav-link" %>
+        </li>
+        <% else %>
+        <li class="nav-item">
+            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+            <%= link_to "My account", user_path(current_user.id), class: "nav-link" %>
+        </li>
+        <li>
+            <% if current_user.admin? %>
+            <%= link_to "My admin account", admin_root_path, class: "nav-link" %>
+            <% end %>
+        </li>
+        <% end %>
+    </ul>
 </div>
+<!-- <li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+Pages
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+<a class="nav-link" href="icon.html">404 Page</a>
+<a class="nav-link " href="typography.html">Typography</a>
+</div>
+</li>
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+Product
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+<a class="nav-link" href="product.html">Kids Toys</a>
+<a class="nav-link " href="product.html">Dolls</a>
+<a class="nav-link " href="product.html">Key Toys</a>
+<a class="nav-link " href="product.html">Boys Toys</a>
+</div>
+</li>
+<li class="nav-item">
+<a href="contact.html" class="nav-link">Contact</a>
+</li> -->
+</ul>
+</div>
+</nav>
+

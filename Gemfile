@@ -82,3 +82,5 @@ gem 'devise'
 gem 'stripe', '~> 5.8'
 
 gem "letter_opener", :group => :development
+
+gem 'mailjet'

@@ -9,7 +9,13 @@ class CartsController < ApplicationController
   end
 
   def show
+    @user = current_user
     @cart = Cart.find(params[:id])
+    @cart_items = CartElement.where(cart_id: @cart)
+    @items = []
+    @cart_items.each do |item|
+      @items << Item.find(item.item_id)
+    end
   end
 
   def update

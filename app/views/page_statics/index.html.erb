@@ -1,13 +1,33 @@
-
-
-    <body>
-            <!-- Slideshow 4 -->
-            <div class="slider text-center">
-                <div class="callbacks_container">
-                <ul class="rslides" id="slider4">
+<div class="header-outs" id="home">
+    <div class="header-bar">
+        <div class="info-top-grid">
+            <div class="info-contact-agile">
+                <ul>
                     <li>
-                        <div class="slider-img one-img">
-                            <div class="container">
+                        <span class="fas fa-phone-volume"></span>
+                        <p>+(33)01 39 65 32 13</p>
+                    </li>
+                    <li>
+                        <span class="fas fa-envelope"></span>
+                        <p><a href="mailto:info@example.com">neko@nekopics.com</a></p>
+                    </li>
+                    <li>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    <%= render 'layouts/navbar'  %> 
+    <%= render 'layouts/flash'  %>
+    </div>
+</div>
+    <!-- Slideshow 4 -->
+    <div class="slider text-center">
+        <div class="callbacks_container">
+            <ul class="rslides" id="slider4">
+                <li>
+                    <div class="slider-img one-img">
+                        <div class="container">
                             <div class="slider-info ">
                                 <h5>The Best Cat's Pics only for <br>You</h5>
                                 <div class="bottom-info">
@@ -17,12 +37,12 @@
                                     <a href="about.html">Shop Now</a>
                                 </div>
                             </div>
-                            </div>
                         </div>
-                    </li>
-                    <li>
-                        <div class="slider-img two-img">
-                            <div class="container">
+                    </div>
+                </li>
+                <li>
+                    <div class="slider-img two-img">
+                        <div class="container">
                             <div class="slider-info ">
                                 <h5>Sort Toys And Teddy bears<br>For Kids</h5>
                                 <div class="bottom-info">
@@ -32,12 +52,12 @@
                                     <a href="about.html">Read More</a>
                                 </div>
                             </div>
-                            </div>
                         </div>
-                    </li>
-                    <li>
-                        <div class="slider-img three-img">
-                            <div class="container">
+                    </div>
+                </li>
+                <li>
+                    <div class="slider-img three-img">
+                        <div class="container">
                             <div class="slider-info">
                                 <h5>Best Toys And Dolls<br> For Kids</h5>
                                 <div class="bottom-info">
@@ -47,24 +67,24 @@
                                     <a href="about.html">Read More</a>
                                 </div>
                             </div>
-                            </div>
                         </div>
-                    </li>
-                </ul>
-                </div>
-                <!-- This is here just to demonstrate the callbacks -->
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <!-- This is here just to demonstrate the callbacks -->
                 <!-- <ul class="events">
                 <li>Example 4 callback events</li>
-                </ul>-->
-                <div class="clearfix"></div>
-            </div>
+            </ul>-->
+            <div class="clearfix"></div>
         </div>
-        <!-- //banner -->
-        <!-- about -->
-        <section class="about py-lg-4 py-md-3 py-sm-3 py-3" id="about">
-            <div class="container py-lg-5 py-md-5 py-sm-4 py-4">
-                <h3 class="title text-center mb-lg-5 mb-md-4  mb-sm-4 mb-3">Best Products</h3>
-                <div class="row banner-below-w3l">
+    </div>
+    <!-- //banner -->
+    <!-- about -->
+    <section class="about py-lg-4 py-md-3 py-sm-3 py-3" id="about">
+        <div class="container py-lg-5 py-md-5 py-sm-4 py-4">
+            <h3 class="title text-center mb-lg-5 mb-md-4  mb-sm-4 mb-3">Best Products</h3>
+            <div class="row banner-below-w3l">
                 <div class="col-lg-4 col-md-6 col-sm-6 text-center banner-agile-flowers">
                     <img src="https://image.noelshack.com/fichiers/2019/48/2/1574792385-a1.jpg" class="img-thumbnail" alt="">
                     <div class="banner-right-icon">
@@ -106,7 +126,6 @@
                         <h2>Get Up to <span>20% Off </span>On Selected Pics</h2>
                     </div>
                 </div>
-                </div>
             </div>
         </section>
         <!-- //about -->
@@ -142,7 +161,6 @@
                                     </div>
                                 </div>
                             </div>
-                            </div>
                             <div class="col-lg-6 clients-w3layouts-row">
                             <div class="least-w3layouts-text-gap">
                                 <div class="row">
@@ -163,7 +181,6 @@
                                         </p>
                                     </div>
                                 </div>
-                            </div>
                             </div>
                         </div>
                     </div>
@@ -189,7 +206,6 @@
                                     </div>
                                 </div>
                             </div>
-                            </div>
                             <div class="col-lg-6 clients-w3layouts-row">
                             <div class="least-w3layouts-text-gap">
                                 <div class="row">
@@ -209,7 +225,6 @@
                                         </p>
                                     </div>
                                 </div>
-                            </div>
                             </div>
                         </div>
                     </div>
@@ -235,7 +250,6 @@
                                     </div>
                                 </div>
                             </div>
-                            </div>
                             <div class="col-lg-6 clients-w3layouts-row">
                             <div class="least-w3layouts-text-gap">
                                 <div class="row">
@@ -256,44 +270,42 @@
                                     </div>
                                 </div>
                             </div>
-                            </div>
                         </div>
                     </div>
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
                 </a>
                 <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
                 </a>
-                </div>
             </div>
-        </section>
-        <!--//Customers Review -->
-        <!--Product-about-->
-        <section class="about py-lg-4 py-md-3 py-sm-3 py-3">
-            <div class="container py-lg-5 py-md-5 py-sm-4 py-3">
-                <h3 class="title text-center mb-lg-5 mb-md-4 mb-sm-4 mb-3">About Cats</h3>
-                <div class="about-products-w3layouts">
+        </div>
+    </section>
+    <!--//Customers Review -->
+    <!--Product-about-->
+    <section class="about py-lg-4 py-md-3 py-sm-3 py-3">
+        <div class="container py-lg-5 py-md-5 py-sm-4 py-3">
+            <h3 class="title text-center mb-lg-5 mb-md-4 mb-sm-4 mb-3">About Cats</h3>
+            <div class="about-products-w3layouts">
                 <p>The cat (Felis catus) is a small carnivorous mammal. It is the only 
-                domesticated species in the family Felidae and often referred to as the domestic 
-                cat to distinguish it from wild members of the family.The cat is either a 
-                house cat or a farm cat, which are pets, or a feral cat, whic h ranges freely and
-                avoids human contact.A house c at is valued by humans for companionship 
-                and for its ability to hunt rodents. About 60 cat breeds are recognized by 
-                various cat registries.
+                    domesticated species in the family Felidae and often referred to as the domestic 
+                    cat to distinguish it from wild members of the family.The cat is either a 
+                    house cat or a farm cat, which are pets, or a feral cat, whic h ranges freely and
+                    avoids human contact.A house c at is valued by humans for companionship 
+                    and for its ability to hunt rodents. About 60 cat breeds are recognized by 
+                    various cat registries.
                 </p>
                 <p class="my-lg-4 my-md-3 my-3">As of 2017, the domestic cat was the second-most
-                popular pet in the United States by number of pets owned, after freshwater fish, 
-                with 95 million cats owned. In the United Kingdom, around 7.3 million cats lived 
-                in more than 4.8 million households as of 2019.
+                    popular pet in the United States by number of pets owned, after freshwater fish, 
+                    with 95 million cats owned. In the United Kingdom, around 7.3 million cats lived 
+                    in more than 4.8 million households as of 2019.
                 </p>
-                </div>
             </div>
-        </section>
-        <!--//Product-about-->
-        <%= render 'layouts/subscribe'  %>
-        <%= render 'layouts/touch'  %>
-    </body>
+        </div>
+    </section>
+    <!--//Product-about-->
+    <%= render 'layouts/subscribe'  %>
+    <%= render 'layouts/touch'  %>
