@@ -86,3 +86,4 @@ gem 'jquery-rails'
 gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass'
 gem 'popper_js', '~> 1.12.9'
+gem "letter_opener", :group => :development
