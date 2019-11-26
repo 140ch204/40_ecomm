@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class OrdersController < ApplicationController
 	def index
 	end
 
@@ -19,4 +19,5 @@ class UsersController < ApplicationController
 
 	def destroy
 	end
+
 end
