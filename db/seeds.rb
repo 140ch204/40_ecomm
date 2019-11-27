@@ -17,8 +17,8 @@ puts "#{user_count} users created"
 
 # Item.destroy_all
 item_count = 0
-image_url = ["http://www.ict-historic.eu/wp-content/uploads/2018/11/magnifiques-chatons-type-siamois-1_450x338z10.jpg",	
-			"http://www.ict-historic.eu/wp-content/uploads/2018/11/1f9ec56504c1fbb1034fac601ec5ce56-1.jpg",
+image_url = ["https://cdn.mos.cms.futurecdn.net/vChK6pTy3vN3KbYZ7UU7k3-970-80.jpg",	
+			"https://images.unsplash.com/photo-1547191783-94d5f8f6d8b1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
 			"http://www.royalfragrance.fr/wp-content/uploads/2015/07/M1redim1.jpg",
 			"https://www.wikichat.fr/wp-content/uploads/sites/2/dsc04085-1024x685.jpg",
 			"https://www.uncompagnon.fr/upload/annonces/71624/02-20190325_114008.jpg",
@@ -32,9 +32,21 @@ image_url = ["http://www.ict-historic.eu/wp-content/uploads/2018/11/magnifiques-
 
 title = ["Tigrou","Caramel","Felix","Simba","Gribouille","Garfield","Minette","Chipie","Caline","Nala","Maya","Mimi"]
 
-description = "Le chaton naît aveugle (les yeux fermés) et sourd. Il pèse de 100 à 110 grammes ; lorsqu’il ouvre les yeux, à l’âge de huit à douze jours, ils sont de couleur bleue jusqu’au changement définitif (vers deux mois). Tous les chatons naissent avec des rayures fantômes qui disparaissent peu à peu avec la pousse du poil. La chatte apprend aux chatons à se laver, se nourrir, etc. À quatre semaines, elle leur apporte leur première proie vivante, puis à cinq semaines, elle leur apprend les rudiments de la chasse. L’émancipation se produit entre huit et douze semaines, mais la séparation de la famille se déroule à l’âge de six à huit mois."
-10.times do
-	Item.create(title: title.sample, description: description, price: 50, image_url: image_url.sample)
+description = ["The Birman, also called 
+	the 'Sacred Cat of Burma', is a domestic cat breed. The Birman is a long-haired, 
+	colour-pointed cat distinguished by a silky coat.", "The Bengal 
+	cat is a domesticated cat breed created from hybrids of domestic cats,
+	the Asian leopard cat (Prionailurus bengalensis) and the Egyptian Mau.", "The Ragdoll 
+	is a cat breed with a color point coat and blue eyes. They are large
+	and muscular semi-longhair cats with a soft and silky coat.", "The Maine Coon is the 
+	largest domesticated cat breed. It has a distinctive physical appearance and 
+	valuable hunting skills. It is one of the oldest.", "The Siamese 
+	cat is one of the first distinctly recognized breeds of Asian cat. 
+	It's one of several varieties of cat native to China and brought to 
+	Thailand."]
+
+20.times do
+	Item.create(title: title.sample, description: description.sample, price: 50, image_url: image_url.sample)
 	item_count += 1
 end
 puts "#{item_count} items created"
