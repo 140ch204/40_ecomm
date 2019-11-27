@@ -31,6 +31,14 @@
                           <%= link_to "", new_user_session_path, class: "fa-lg fas fa-cart-arrow-down" %>
                         <% end %>
                     </li>
+                    <li></li>
+                    <li>
+                        <% if current_user != nil && current_user.cart != nil%>
+                          <%= link_to "", orders_path, class: "fa-lg far fa-file-alt" %>
+                        <% else %>
+                          <%= link_to "", new_user_session_path, class: "fa-lg far fa-file-alt" %>
+                        <% end %>
+                    </li>                    
                 </ul>
             </div>
         </div>

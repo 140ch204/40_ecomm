@@ -1,0 +1,47 @@
+<div class="using-border py-3">
+  <div class="inner_breadcrumb  ml-4">
+    <ul class="short_ls">
+      <li>
+        <%= link_to "home", root_path()%>
+        <span>/ /</span>
+      </li>
+      <li>Orders</li>
+    </ul>
+  </div>
+</div>
+
+<section class="checkout py-lg-4 py-md-3 py-sm-3 py-3">
+  <div class="container py-lg-5 py-md-4 py-sm-4 py-3">
+    <div class="shop_inner_inf">
+      <div class="privacy about">
+        <h3>Orders</h3>
+        <div class="checkout-right">
+          <h4>Your passed orders:</h4>
+          <table class="timetable_sub">
+
+            <thead>
+              <tr>
+                <th>SL No.</th>
+                <th>Invoice Number</th>
+                <th>Amount</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% i=0 %>
+              <% @orders.each do |order|%>
+              <tr class="rem1">
+                <td class="invert"><%= i += 1 %></td>
+                <td class="invert"><%= order.id %></td>
+                <td class="invert"><%= order.id %></td>
+                <td class="invert"><%= link_to "See more", order_path(order.id), style: 'color:pink' %></td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

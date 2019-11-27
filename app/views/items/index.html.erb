@@ -1,39 +1,39 @@
 <!-- short -->
-        <br><br>
-        <div class="using-border py-3">
-            <div class="inner_breadcrumb  ml-4">
-                <ul class="short_ls">
-                <li><h4>Shop Now</h4></li>
-                </ul>
-            </div>
-        </div>
-        <br><br>
+<br><br>
+<div class="using-border py-3">
+    <div class="inner_breadcrumb  ml-4">
+        <ul class="short_ls">
+            <li><h4>Shop Now</h4></li>
+        </ul>
+    </div>
+</div>
+<br><br>
 <!-- //short-->
 <div class="container">
     <div class="card-columns">
         <% @items.each do |item| %>
-            <div class="card">
+        <div class="card">
             <% if item.picture.attached? == false%>
-                <img src=<%= item.image_url %> class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title"><%= item.title %></h5>
-                    <p class="card-text">€ <%= item.price %></p>
-                </div>
-                <div class="card-footer text-center">
-                    <button type="submit" class="toys-cart ptoys-cart add">
-                                Add to Cart
-                    </button>
-                    <hr>
-                    <button type="submit" class="toys-cart ptoys-cart add">
-                    <%= link_to "More details", item_path(item.id) %>
-                    </button>
-                    <% else %>
-                    <%= image_tag item.picture, alt: 'picture', class: "card-img-top" %>
-                    <% end %>
-                </div>
+            <img src=<%= item.image_url %> class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title"><%= item.title %></h5>
+                <p class="card-text">€ <%= item.price %></p>
             </div>
-            <br>
-            <br>
+            <div class="card-footer text-center">
+                <button type="submit" class="toys-cart ptoys-cart add">
+                    <%= link_to "Add to cart", cart_elements_path(cart_id: current_user.cart.id, item_id: item.id), method: :post %>
+                </button>
+                <hr>
+                <button type="submit" class="toys-cart ptoys-cart add">
+                    <%= link_to "More details", item_path(item.id) %>
+                </button>
+                <% else %>
+                <%= image_tag item.picture, alt: 'picture', class: "card-img-top" %>
+                <% end %>
+            </div>
+        </div>
+        <br>
+        <br>
         <% end %>
     </div>
 </div>        

@@ -8,19 +8,17 @@ class CartsController < ApplicationController
     @user = current_user
     @item = Item.find(params[:item_id])
     @cart = Cart.create(user: current_user)
-    CartElement.create(cart: @cart, item_id: @item.id)
+    CartElement.create(cart: @cart, item_id: @item.id, quantity: 1)
     redirect_to items_path
   end
 
-  def show
-    current_user.cart_items
-    
+  def show    
     @user = current_user
-    @cart = Cart.find(params[:id])
+    @cart = Cart.find_by(user_id: @user.id)
     @cart_items = CartElement.where(cart_id: @cart.id)
     @items = []
     @amount = 0
-    cart_items.each do |item|
+    @cart_items.each do |item|
       @items << Item.find(item.item_id)
       @amount += Item.find(item.item_id).price * item.quantity
     end
@@ -28,7 +26,6 @@ class CartsController < ApplicationController
 
   def update
     @cart = Cart.find(params[:id])
-    @cart.update(permited_params)
   end
 
   def destroy
