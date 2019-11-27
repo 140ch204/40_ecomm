@@ -1,5 +1,9 @@
 class ChargesController < ApplicationController
 
+	after_action :generate_order, only: [:create]
+	after_action :generate_order_elements, only: [:create]
+	after_action :clean_cart, only: [:create]
+
 	def new
 		puts "X"*50
 		puts params
@@ -22,7 +26,7 @@ class ChargesController < ApplicationController
 		})
 
 		charge = Stripe::Charge.create({
-			customer: current_user.id,
+			customer: customer.id,
 			amount: @amount,
 			description: "Paiement de #{current_user.email}",
 			currency: 'eur',
@@ -34,4 +38,32 @@ class ChargesController < ApplicationController
 		flash[:error] = e.message
 		redirect_to new_charge_path
 	end
+
+	def generate_order
+		Order.create(user_id: current_user.id)
+	end
+
+	def generate_ordered_elements
+		@user = current_user
+		@cart = @user.cart
+		@cart_items = CartElement.where(cart_id: @cart.id)
+		@cart_items.each do |item|
+			OrderedItem.create(order_id: Order.last,
+				item_id: item.id,
+				quantity: item.quantity)
+		end
+	end
+
+	def clean_cart
+		@user = current_user
+		@cart = @user.cart
+		@cart_items = CartElement.where(cart_id: @cart.id)
+		@cart_items.each do |item|
+			item.destroy
+			# @cart_items.each do |item|
+			# element = CartElement.find_by(item_id: item.id)
+			# element.destroy
+		end
+	end
+
 end

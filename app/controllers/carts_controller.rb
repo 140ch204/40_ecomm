@@ -12,9 +12,9 @@ class CartsController < ApplicationController
     redirect_to items_path
   end
 
-  def show
+  def show    
     @user = current_user
-    @cart = Cart.find(params[:id])
+    @cart = Cart.find_by(user_id: @user.id)
     @cart_items = CartElement.where(cart_id: @cart.id)
     @items = []
     @amount = 0
