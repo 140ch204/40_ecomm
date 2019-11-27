@@ -20,7 +20,7 @@ class OrdersController < ApplicationController
 
 	def create
 		@order = Order.create
-	end
+	endi
 
 	def edit
 	end
