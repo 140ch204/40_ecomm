@@ -15,11 +15,19 @@
             <div class="cart-icons">
                 <ul>
                     <li>
+                      <% if current_user != nil%>
                         <%= link_to "", user_path(current_user.id), class: "fa-lg far fa-user" %>
+                      <% else %>
+                        <%= link_to "", new_user_session_path, class: "fa-lg far fa-user" %>
+                      <% end %>
                     </li>
                     <li></li>
                     <li>
-                        <%= link_to "", user_cart_path(current_user.id, current_user.cart.id), class: "fa-lg fas fa-cart-arrow-down" %>
+                        <% if current_user != nil%>
+                          <%= link_to "", user_cart_path(current_user.id, current_user.cart.id), class: "fa-lg fas fa-cart-arrow-down" %>
+                        <% else %>
+                          <%= link_to "", new_user_session_path, class: "fa-lg fas fa-cart-arrow-down" %>
+                        <% end %>
                     </li>
                 </ul>
             </div>
