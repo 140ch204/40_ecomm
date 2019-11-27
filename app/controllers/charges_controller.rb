@@ -1,8 +1,8 @@
 class ChargesController < ApplicationController
 
-	after_create: generate_order
-	after_create: generate_order_elements
-	after_create: clean_cart
+	after_action :generate_order, only: [:create]
+	after_action :generate_order_elements, only: [:create]
+	after_action :clean_cart, only: [:create]
 
 	def new
 		puts "X"*50
@@ -26,7 +26,7 @@ class ChargesController < ApplicationController
 		})
 
 		charge = Stripe::Charge.create({
-			customer: current_user.id,
+			customer: customer.id,
 			amount: @amount,
 			description: "Paiement de #{current_user.email}",
 			currency: 'eur',
@@ -59,8 +59,10 @@ class ChargesController < ApplicationController
 		@cart = @user.cart
 		@cart_items = CartElement.where(cart_id: @cart.id)
 		@cart_items.each do |item|
-			element = CartElement.where(item_id: item.id)
-			element.destroy
+			item.destroy
+			# @cart_items.each do |item|
+			# element = CartElement.find_by(item_id: item.id)
+			# element.destroy
 		end
 	end
 
