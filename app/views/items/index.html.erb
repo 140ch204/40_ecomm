@@ -1,10 +1,6 @@
-<div class='container'>
-	<div class='card-deck'>
-		<div class="row">
 
+<!-- banner -->
 
-
-    <!-- banner -->
     <div class="inner_page-banner one-img">
     </div>
     <!--//banner -->
@@ -12,10 +8,8 @@
     <div class="card-columns">
         <% @items.each do |item| %>
             <div class="card">
-              <% if item.picture.attached? == false%>
+            <% if item.picture.attached? == false%>
                 <img src=<%= item.image_url %> class="card-img-top" alt="...">
-              <% else %>
-                <%= image_tag item.picture, alt: 'picture', class: "card-img-top" %>
                 <div class="card-body">
                     <h5 class="card-title"><%= item.title %></h5>
                     <p class="card-text">€ <%= item.price %></p>
@@ -28,18 +22,14 @@
                     <button type="submit" class="toys-cart ptoys-cart add">
                     <%= link_to "More details", item_path(item.id) %>
                     </button>
-                    
+                    <% else %>
+                    <%= image_tag item.picture, alt: 'picture', class: "card-img-top" %>
+                    <% end %>
                 </div>
             </div>
             <br>
             <br>
         <% end %>
-					<%= item.title %>
-					<%= item.description %>
-					<%= item.price %>			
-					<%= link_to "Show", item_path(item.id), class: "btn-primary"%>
-				</div>
-			<% end %>
-		</div>
-	</div>
-</div>
+    </div>
+</div>        
+<br>
