@@ -1,7 +1,7 @@
 class ChargesController < ApplicationController
 
-	after_action :generate_order, only: [:create]
-	after_action :generate_order_elements, only: [:create]
+	after_action :generate_ordered_elements, only: [:create]
+	after_action :generate_order, only: [:create]	
 	after_action :clean_cart, only: [:create]
 
 	def new
@@ -32,7 +32,7 @@ class ChargesController < ApplicationController
 			currency: 'eur',
 		})
 
-		redirect_to root_path
+		redirect_to orders_path
 
 	rescue Stripe::CardError => e
 		flash[:error] = e.message
@@ -40,7 +40,8 @@ class ChargesController < ApplicationController
 	end
 
 	def generate_order
-		Order.create(user_id: current_user.id)
+		order = Order.create(user_id: current_user.id)
+		return order.id
 	end
 
 	def generate_ordered_elements
@@ -48,7 +49,10 @@ class ChargesController < ApplicationController
 		@cart = @user.cart
 		@cart_items = CartElement.where(cart_id: @cart.id)
 		@cart_items.each do |item|
-			OrderedItem.create(order_id: Order.last,
+			puts "X"*100
+			puts order.id
+			puts "X"*100
+			OrderedItem.create(order_id: order.id,
 				item_id: item.id,
 				quantity: item.quantity)
 		end
@@ -60,9 +64,6 @@ class ChargesController < ApplicationController
 		@cart_items = CartElement.where(cart_id: @cart.id)
 		@cart_items.each do |item|
 			item.destroy
-			# @cart_items.each do |item|
-			# element = CartElement.find_by(item_id: item.id)
-			# element.destroy
 		end
 	end
 

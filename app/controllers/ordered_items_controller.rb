@@ -1,23 +1,7 @@
 class OrderedItemsController < ApplicationController
-	def index
-	end
-
-	def show
-	end
-
-	def new
-	end
 
 	def create
-	end
-
-	def edit
-	end
-
-	def update
-	end
-
-	def destroy
+		OrderedItems.create(order_id: params[:order_id], item_id: params[:item_id], quantity: 1)
 	end
 
 end
