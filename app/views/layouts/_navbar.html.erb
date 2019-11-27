@@ -15,19 +15,11 @@
             <div class="cart-icons">
                 <ul>
                     <li>
-                        <span class="far fa-heart"></span>
+                        <%= link_to "", user_path(current_user.id), class: "fa-lg far fa-user" %>
                     </li>
+                    <li></li>
                     <li>
-                        <button type="button" data-toggle="modal" data-target="#exampleModal"> <span class="far fa-user"></span></button>
-                    </li>
-                    <li class="toyscart toyscart2 cart cart box_1">
-                        <form action="#" method="post" class="last">
-                            <input type="hidden" name="cmd" value="_cart">
-                            <input type="hidden" name="display" value="1">
-                            <button class="top_toys_cart" type="submit" name="submit" value="">
-                                <span class="fas fa-cart-arrow-down"></span>
-                            </button>
-                        </form>
+                        <%= link_to "", user_cart_path(current_user.id, current_user.cart.id), class: "fa-lg fas fa-cart-arrow-down" %>
                     </li>
                 </ul>
             </div>
