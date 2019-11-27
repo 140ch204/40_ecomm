@@ -5,7 +5,11 @@ class CartsController < ApplicationController
   end
   
   def create
-    @cart = Cart.new
+    @user = current_user
+    @item = Item.find(params[:item_id])
+    @cart = Cart.create(user: current_user)
+    CartElement.create(cart: @cart, item_id: @item.id)
+    redirect_to items_path
   end
 
   def show
