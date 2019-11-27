@@ -1,16 +1,4 @@
-<div class='container'>
-    <div class='card-deck'>
-        <div class="row">
-            <div class="card border-primary mb-3" style="min-width: 20rem;">
-                <img src="<%= @item.image_url %>" class="card-img-top">
-                <%= @item.title %>
-                <%= @item.description %>
-                <%= @item.price %>           
-                <% unless current_user.nil? %>
-                    <a class="btn btn-primary" href="<%= new_charge_path(id: @item.id) %>" >Buy now</a>
-                <% end %>
-            </div>
-        </div>
+
         <!-- //short-->
         <!--/shop-->
         <section class="banner-bottom py-lg-5 py-3">
