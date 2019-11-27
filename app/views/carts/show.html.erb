@@ -39,9 +39,13 @@
                 <td class="invert">
                   <div class="quantity">
                     <div class="quantity-select">
+                    <%= link_to cart_element_path(cart_elem_id: @cart_items[index].id, quantity: -1), method: :put do%>
                       <div class="entry value-minus">&nbsp;</div>
+                    <% end %>
                       <div class="entry value"><span><%= item.quantity %></span></div>
+                    <%= link_to cart_element_path(cart_elem_id: @cart_items[index].id, quantity: 1), method: :put do%>
                       <div class="entry value-plus active">&nbsp;</div>
+                    <% end %>
                     </div>
                   </div>
                 </td>
