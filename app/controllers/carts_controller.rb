@@ -8,7 +8,7 @@ class CartsController < ApplicationController
     @user = current_user
     @item = Item.find(params[:item_id])
     @cart = Cart.create(user: current_user)
-    CartElement.create(cart: @cart, item_id: @item.id)
+    CartElement.create(cart: @cart, item_id: @item.id, quantity: 1)
     redirect_to items_path
   end
 
@@ -26,7 +26,6 @@ class CartsController < ApplicationController
 
   def update
     @cart = Cart.find(params[:id])
-    @cart.update(permited_params)
   end
 
   def destroy

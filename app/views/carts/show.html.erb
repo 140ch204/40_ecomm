@@ -32,10 +32,10 @@
 
             <tbody>
               <% i=0 %>
-              <% @cart_items.each do |item|%>
+              <% @cart_items.each_with_index do |item, index|%>
               <tr class="rem1">
                 <td class="invert"><%= i += 1 %></td>
-                <td class="invert-image"><%= Item.find(item.item_id).image_url %></td>
+                <td class="invert-image"><img src=<%= @items[index].image_url %> class="card-img-top" alt="..."></td>
                 <td class="invert">
                   <div class="quantity">
                     <div class="quantity-select">
@@ -45,10 +45,10 @@
                     </div>
                   </div>
                 </td>
-                <td class="invert"><%= Item.find(item.item_id).title %></td>
-                <td class="invert"><%= Item.find(item.item_id).price %></td>
+                <td class="invert"><%= @items[index].title %></td>
+                <td class="invert"><%= @items[index].price %></td>
                 <td class="invert">
-                  <%= link_to root_path do %>
+                  <%= link_to cart_element_path(cart_elem_id: @cart_items[index].id), method: :delete do %>
                     <%= content_tag :span, "", :class => "far fa-trash-alt", style: 'color:#000000' %>
                   <% end %>
                 </td>

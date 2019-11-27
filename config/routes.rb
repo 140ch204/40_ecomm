@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   resources :items do
     resources :pictures, only: [:create, :new]
   end
+
+  resources :cart_elements, only: [:destroy]
+
 	resources :users do
 		resources :carts
 	end
