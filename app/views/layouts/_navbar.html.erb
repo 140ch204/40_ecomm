@@ -1,9 +1,11 @@
 <div class="container-fluid">
     <div class="hedder-up row">
         <div class="col-lg-3 col-md-3 logo-head">
-            <h1>
-                <%= link_to "Neko Pics", root_path, class: "navbar-brand" %>
-            </h1>
+            
+                <%= link_to root_path do %> 
+                <%= image_tag "Nekopix.png", class: "navbar-brand" %>
+                <% end %>
+            
         </div>
         <div class="col-lg-5 col-md-6 search-right">
             <form class="form-inline my-lg-0">
@@ -103,4 +105,6 @@ Product
 </ul>
 </div>
 </nav>
+
+
 

@@ -219,7 +219,7 @@ h5#exampleModalLabel{
 .two-img{  background: url(../assets/b2.jpg)no-repeat center;}
 .three-img{  background: url(../assets/b3.jpg)no-repeat center;} 
 .slider-img{  background-size: cover;
-min-height: 800px;}  
+min-height: 1200px;}  
 .rslides {
 position: relative;
 list-style: none;
