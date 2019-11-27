@@ -2,12 +2,34 @@
 	<div class='card-deck'>
 		<div class="row">
 
-			<% @items.each do |item| %>
-				<div class="card border-primary mb-3" style="min-width: 20rem;">
-        <% if item.picture.attached? == true%>
-          <%= image_tag item.picture, alt: 'picture', class: "card-img-top" %>
-        <% else %>
-					<img src="<%= item.image_url %>" class="card-img-top">
+
+
+    <!-- banner -->
+    <div class="inner_page-banner one-img">
+    </div>
+    <!--//banner -->
+<div class="container">
+    <div class="card-columns">
+        <% @items.each do |item| %>
+            <div class="card">
+                <img src=<%= item.image_url %> class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title"><%= item.title %></h5>
+                    <p class="card-text">€ <%= item.price %></p>
+                </div>
+                <div class="card-footer text-center">
+                    <button type="submit" class="toys-cart ptoys-cart add">
+                                Shop Now
+                    </button>
+                    <hr>
+                    <button type="submit" class="toys-cart ptoys-cart add">
+                    <%= link_to "More details", item_path(item.id) %>
+                    </button>
+                    
+                </div>
+            </div>
+            <br>
+            <br>
         <% end %>
 					<%= item.title %>
 					<%= item.description %>
