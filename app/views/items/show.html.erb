@@ -43,7 +43,7 @@
                             <div class="toys single-item singlepage">
                             <form action="#" method="post">
                                 <button type="submit" class="toys-cart-2 ptoys-cart add">
-                                <%= link_to "Add to cart", user_carts_path(current_user.id, item_id: params[:id]), method: :post %>
+                                <%= link_to "Add to cart", cart_elements_path(cart_id: current_user.cart.id, item_id: @item.id), method: :post %>
                                 </button>
                             </form>
                             <% if current_user != nil && current_user.admin? == true %>
