@@ -46,11 +46,13 @@
 
 <body>
 
- 	<%= render 'layouts/navbar' unless @disable_nav %>
+	<%= render 'layouts/navbar' unless @disable_nav %>
 	<%= render 'layouts/flash'  unless @disable_nav %>
 
 	<%= yield %>
 
+	<%= render 'layouts/subscribe'  %>
+    <%= render 'layouts/touch'  %>
 	<%= render 'layouts/footer'  %>
 	
 </body>

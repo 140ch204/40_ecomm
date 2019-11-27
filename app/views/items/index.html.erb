@@ -1,34 +1,28 @@
 
 
-<body>
+
     <!-- banner -->
     <div class="inner_page-banner one-img">
     </div>
     <!--//banner -->
 <div class="container">
-    <div class="row">
-        <div class="col">
-        </div>
-        <div class="col">
-            <div class="card-deck">
-                <% for index in (0..2) do %>
-                <% item = @items[index]%>
-                    <div class="card" style="width: 50rem;">
-                        <img class="card-img-top" src=<%= item.image_url %> alt="Card image cap">
-                            <div class="card-body">
-                                <h5 class="card-title"><%= item.title %></h5>
-                                <p class="card-text">€ <%= item.price %></p>
-                                <a href="#" class="btn btn-primary">Shop Now</a>
-                                <hr>
-                                <%= link_to "Plus d'infos", item_path(item.id), class:"btn btn-primary"%>
-                            </div>
-                    </div>
-                <% end %>
+    <div class="card-columns">
+        <% @items.each do |item| %>
+            <div class="card">
+                <img src=<%= item.image_url %> class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title"><%= item.title %></h5>
+                    <p class="card-text">€ <%= item.price %></p>
+                </div>
+                <div class="card-footer">
+                    <a href="#" class="btn btn-primary">Shop Now</a>
+                    <hr>
+                    <a class="btn btn-primary" <%= link_to "Plus d'infos", item_path(item.id) %></a>
+                </div>
             </div>
-        </div>
-        <div class="col">
-        </div>
+            <br>
+            <br>
+        <% end %>
     </div>
-    
-</div>
-</body>
+</div>        
+<br>
