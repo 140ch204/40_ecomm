@@ -31,26 +31,29 @@
             </thead>
 
             <tbody>
+              <% i=0 %>
+              <% @cart_items.each do |item|%>
               <tr class="rem1">
-                <td class="invert">1</td>
-                <td class="invert-image"><a href="single.html"><img src="images/f1.jpg" alt=" " class="img-responsive"></a></td>
+                <td class="invert"><%= i += 1 %></td>
+                <td class="invert-image"><%= Item.find(item.item_id).image_url %></td>
                 <td class="invert">
                   <div class="quantity">
                     <div class="quantity-select">
                       <div class="entry value-minus">&nbsp;</div>
-                      <div class="entry value"><span>VAR Q</span></div>
+                      <div class="entry value"><span><%= item.quantity %></span></div>
                       <div class="entry value-plus active">&nbsp;</div>
                     </div>
                   </div>
                 </td>
-                <td class="invert">VAR NAME</td>
-                <td class="invert">VAR PRICE</td>
+                <td class="invert"><%= Item.find(item.item_id).title %></td>
+                <td class="invert"><%= Item.find(item.item_id).price %></td>
                 <td class="invert">
-                  <div class="rem">
-                    <div class="close1"> </div>
-                  </div>
+                  <%= link_to root_path do %>
+                    <%= content_tag :span, "", :class => "far fa-trash-alt", style: 'color:#000000' %>
+                  <% end %>
                 </td>
               </tr>
+              <% end %>
             </tbody>
 
           </table>
@@ -63,7 +66,7 @@
               <div class="information-wrapper">
                 <div class="first-row form-group">
                   <div class="controls">
-                    <label class="control-label">Change your delivery adress: </label>
+                    <label class="control-label">Change your delivery adress (optional): </label>
                     <input class="billing-address-name form-control" type="text" name="name" placeholder="New email adress">
                   </div>
                   <button class="submit check_out">Delivery to this Address</button>
@@ -76,7 +79,7 @@
             <div class="col-md-4 checkout-left-basket">
               <h4><%= link_to "Pay now", new_charge_path %></h4>                  
               <ul>
-                <li>Total <i>-</i> <span>$ VAR TOTAL AMOUNT</span></li>
+                <li>Total <i>-</i> <span><%= @amount %> €</span></li>
               </ul>
             </div>
           </div>
@@ -89,6 +92,4 @@
 <div class="clearfix"></div>
 </div>
 </section>
-
-
-
+</br>
