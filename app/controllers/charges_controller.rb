@@ -1,5 +1,9 @@
 class ChargesController < ApplicationController
 
+	after_create: generate_order
+	after_create: generate_order_elements
+	after_create: clean_cart
+
 	def new
 		puts "X"*50
 		puts params
@@ -34,4 +38,30 @@ class ChargesController < ApplicationController
 		flash[:error] = e.message
 		redirect_to new_charge_path
 	end
+
+	def generate_order
+		Order.create(user_id: current_user.id)
+	end
+
+	def generate_ordered_elements
+		@user = current_user
+		@cart = @user.cart
+		@cart_items = CartElement.where(cart_id: @cart.id)
+		@cart_items.each do |item|
+			OrderedItem.create(order_id: Order.last,
+				item_id: item.id,
+				quantity: item.quantity)
+		end
+	end
+
+	def clean_cart
+		@user = current_user
+		@cart = @user.cart
+		@cart_items = CartElement.where(cart_id: @cart.id)
+		@cart_items.each do |item|
+			element = CartElement.where(item_id: item.id)
+			element.destroy
+		end
+	end
+
 end
