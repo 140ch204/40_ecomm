@@ -15,6 +15,5 @@ Rails.application.routes.draw do
 	end
 
 	resources :orders
-	resources :ordereditems
 	resources :charges
 end

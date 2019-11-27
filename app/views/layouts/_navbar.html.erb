@@ -11,23 +11,23 @@
                 <button class="btn" type="submit">Search</button>
             </form>
         </div>
-        <div class="col-lg-4 col-md-3 right-side-cart">
+        <div class="col-lg-4 col-md-3 right-side-cart content-center">
             <div class="cart-icons">
                 <ul>
                     <li>
-                        <span class="far fa-heart"></span>
+                      <% if current_user != nil%>
+                        <%= link_to "", user_path(current_user.id), class: "fa-lg far fa-user" %>
+                      <% else %>
+                        <%= link_to "", new_user_session_path, class: "fa-lg far fa-user" %>
+                      <% end %>
                     </li>
+                    <li></li>
                     <li>
-                        <button type="button" data-toggle="modal" data-target="#exampleModal"> <span class="far fa-user"></span></button>
-                    </li>
-                    <li class="toyscart toyscart2 cart cart box_1">
-                        <form action="#" method="post" class="last">
-                            <input type="hidden" name="cmd" value="_cart">
-                            <input type="hidden" name="display" value="1">
-                            <button class="top_toys_cart" type="submit" name="submit" value="">
-                                <span class="fas fa-cart-arrow-down"></span>
-                            </button>
-                        </form>
+                        <% if current_user != nil && current_user.cart != nil%>
+                          <%= link_to "", user_cart_path(current_user.id, current_user.cart.id), class: "fa-lg fas fa-cart-arrow-down" %>
+                        <% else %>
+                          <%= link_to "", new_user_session_path, class: "fa-lg fas fa-cart-arrow-down" %>
+                        <% end %>
                     </li>
                 </ul>
             </div>

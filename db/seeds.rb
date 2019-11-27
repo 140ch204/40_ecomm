@@ -8,13 +8,14 @@
 
 User.destroy_all
 user_count = 0
+user_array = []
 10.times do
-	User.create(email: Faker::Internet.email, password: Faker::Internet.password)
-	user_count += 1
+	user_array << User.create(email: Faker::Internet.email, password: Faker::Internet.password)
+  user_count += 1
 end
 puts "#{user_count} users created"
 
-Item.destroy_all
+# Item.destroy_all
 item_count = 0
 image_url = ["http://www.ict-historic.eu/wp-content/uploads/2018/11/magnifiques-chatons-type-siamois-1_450x338z10.jpg",	
 			"http://www.ict-historic.eu/wp-content/uploads/2018/11/1f9ec56504c1fbb1034fac601ec5ce56-1.jpg",
@@ -38,11 +39,25 @@ description = "Le chaton naît aveugle (les yeux fermés) et sourd. Il pèse de 
 end
 puts "#{item_count} items created"
 
+cart_count = 0
+user_array.each do |user|
+  Cart.create(user: user)
+  cart_count += 1
+end
+puts "#{cart_count} carts created"
+
+cart_elem_count = 0
+50.times do 
+  CartElement.create(item_id: Item.all.sample.id, cart: Cart.all.sample, quantity: rand(1..5))
+  cart_elem_count += 1
+end
+puts "#{cart_elem_count} cart_elements created"
+
 Order.destroy_all
 order_count = 0
 20.times do
-	Order.create(user_id: User.all.sample.id)
-	order_count += 1
+  Order.create(user_id: User.all.sample.id)
+  order_count += 1
 end
 puts "#{order_count} orders created"
 

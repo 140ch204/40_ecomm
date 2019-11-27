@@ -1,3 +1,22 @@
 // Place all the styles related to the Items controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+.card-img-top {
+    height: 20rem;
+    object-fit: cover;
+}
+
+.btn-primary-2{
+    font-size: 1.2em;
+    color: #fff;
+    border:none;
+    text-align: center;
+    border-left:none!important;
+    background: none;
+	background: #171717;
+    width:40%;
+	padding:12px 0px
+}
