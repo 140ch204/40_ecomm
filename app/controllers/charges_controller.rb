@@ -1,7 +1,7 @@
 class ChargesController < ApplicationController
 
 	after_action :generate_order, only: [:create]
-	after_action :generate_order_elements, only: [:create]
+	after_action :generate_ordered_elements, only: [:create]
 	after_action :clean_cart, only: [:create]
 
 	def new
@@ -48,7 +48,9 @@ class ChargesController < ApplicationController
 		@cart = @user.cart
 		@cart_items = CartElement.where(cart_id: @cart.id)
 		@cart_items.each do |item|
-			OrderedItem.create(order_id: Order.last,
+			order_id = Order.last.id
+			puts order_id
+			OrderedItem.create(order_id: order_id,
 				item_id: item.id,
 				quantity: item.quantity)
 		end
@@ -60,9 +62,6 @@ class ChargesController < ApplicationController
 		@cart_items = CartElement.where(cart_id: @cart.id)
 		@cart_items.each do |item|
 			item.destroy
-			# @cart_items.each do |item|
-			# element = CartElement.find_by(item_id: item.id)
-			# element.destroy
 		end
 	end
 

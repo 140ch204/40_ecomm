@@ -5,7 +5,7 @@
         <%= link_to "home", root_path()%>
         <span>/ /</span>
       </li>
-      <li>Checkout</li>
+      <li>Order</li>
     </ul>
   </div>
 </div>
@@ -14,9 +14,9 @@
   <div class="container py-lg-5 py-md-4 py-sm-4 py-3">
     <div class="shop_inner_inf">
       <div class="privacy about">
-        <h3>Checkout</h3>
+        <h3>Order</h3>
         <div class="checkout-right">
-          <h4>Your shopping cart contains:</h4>
+          <h4>Your order n°<%= @order.id %> contained:</h4>
           <table class="timetable_sub">
 
             <thead>
@@ -26,13 +26,13 @@
                 <th>Quantity</th>
                 <th>Product Name</th>
                 <th>Price</th>
-                <th>Remove</th>
+                <th>Buy again</th>
               </tr>
             </thead>
 
             <tbody>
               <% i=0 %>
-              <% @cart_items.each_with_index do |item, index|%>
+              <% @purchases.each_with_index do |item, index|%>
               <tr class="rem1">
                 <td class="invert"><%= i += 1 %></td>
                 <td class="invert-image"><img src=<%= @items[index].image_url %> class="card-img-top" alt="..."></td>
@@ -55,41 +55,9 @@
               </tr>
               <% end %>
             </tbody>
-
           </table>
         </div>
-
-        <div class="col-md-8 address_form">
-          <h4>Your delivery adress is: <%= current_user.email %></h4>
-          <form action="payment.html" method="post" class="creditly-card-form agileinfo_form">
-            <section class="creditly-wrapper wrapper">
-              <div class="information-wrapper">
-                <div class="first-row form-group">
-                  <div class="controls">
-                    <label class="control-label">Change your delivery adress (optional): </label>
-                    <input class="billing-address-name form-control" type="text" name="name" placeholder="New email adress">
-                  </div>
-                  <button class="submit check_out">Delivery to this Address</button>
-                </div>
-              </section>
-            </form>
-          </div>
-
-          <div class="checkout-left">
-            <div class="col-md-4 checkout-left-basket">
-              <h4><%= link_to "Pay now", new_charge_path %></h4>                  
-              <ul>
-                <li>Total <i>-</i> <span><%= @amount %> €</span></li>
-              </ul>
-            </div>
-          </div>
-        </section>
-      </form>
+      </div>
     </div>
   </div>
-</div>
-<div class="clearfix"> </div>
-<div class="clearfix"></div>
-</div>
 </section>
-</br>
