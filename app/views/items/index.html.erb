@@ -12,7 +12,10 @@
     <div class="card-columns">
         <% @items.each do |item| %>
             <div class="card">
+              <% if item.picture.attached? == false%>
                 <img src=<%= item.image_url %> class="card-img-top" alt="...">
+              <% else %>
+                <%= image_tag item.picture, alt: 'picture', class: "card-img-top" %>
                 <div class="card-body">
                     <h5 class="card-title"><%= item.title %></h5>
                     <p class="card-text">€ <%= item.price %></p>
