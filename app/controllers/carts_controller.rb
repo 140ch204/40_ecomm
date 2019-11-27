@@ -14,7 +14,7 @@ class CartsController < ApplicationController
 
   def show    
     @user = current_user
-    @cart = Cart.find(@user.id)
+    @cart = Cart.find_by(user_id: @user.id)
     @cart_items = CartElement.where(cart_id: @cart.id)
     @items = []
     @amount = 0
