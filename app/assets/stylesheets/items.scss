@@ -9,7 +9,9 @@
     object-fit: cover;
 }
 
-.btn-primary-2{
+
+
+button.toys-cart  {
     font-size: 1.2em;
     color: #fff;
     border:none;
@@ -17,6 +19,18 @@
     border-left:none!important;
     background: none;
 	background: #171717;
-    width:40%;
+    width:50%;
+	padding:12px 0px
+}
+
+button.toys-cart-2  {
+    font-size: 1.2em;
+    color: #fff;
+    border:none;
+    text-align: center;
+    border-left:none!important;
+    background: none;
+	background: #171717;
+    width:30%;
 	padding:12px 0px
 }

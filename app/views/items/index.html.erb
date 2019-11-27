@@ -15,9 +15,14 @@
                     <p class="card-text">€ <%= item.price %></p>
                 </div>
                 <div class="card-footer text-center">
-                    <a href="#" class="btn btn-primary-2">Shop Now</a>
+                    <button type="submit" class="toys-cart ptoys-cart add">
+                                Shop Now
+                    </button>
                     <hr>
-                    <a class="btn btn-primary-2 center" <%= link_to "Plus d'infos", item_path(item.id) %></a>
+                    <button type="submit" class="toys-cart ptoys-cart add">
+                    <%= link_to "More details", item_path(item.id) %>
+                    </button>
+                    
                 </div>
             </div>
             <br>
