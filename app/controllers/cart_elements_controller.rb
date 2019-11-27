@@ -1,5 +1,8 @@
 class CartElementsController < ApplicationController
 
+  def create
+    
+  end
 
   def update
     @cart_elem = CartElement.find(params[:cart_elem_id])
