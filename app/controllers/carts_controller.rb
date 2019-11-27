@@ -13,8 +13,10 @@ class CartsController < ApplicationController
     @cart = Cart.find(params[:id])
     @cart_items = CartElement.where(cart_id: @cart.id)
     @items = []
+    @amount = 0
     @cart_items.each do |item|
       @items << Item.find(item.item_id)
+      @amount += Item.find(item.item_id).price * item.quantity
     end
   end
 
