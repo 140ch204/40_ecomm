@@ -25,7 +25,11 @@
                     <div class="single-right-left">
                             <ul class="slides">
                                 <li data-thumb="images/f2.jpg">
-                                    <div class="thumb-image"> <img src=<%= @item.image_url %> data-imagezoom="true" class="img-fluid" alt=" "> </div>
+                                  <% if @item.picture.attached? == true%>
+                                    <div class="thumb-image"> <%= image_tag @item.picture, alt: 'picture' %> data-imagezoom="true" class="img-fluid" alt=" "> </div>
+                                  <% else %>
+					                          <img src="<%= @item.image_url %>" class="card-img-top">
+                                  <% end %>
                                 </li>
                             </ul>
                             <div class="clearfix"></div>
@@ -49,6 +53,10 @@
                                 Add to Cart
                                 </button>
                             </form>
+                            <% if current_user != nil && current_user.admin? == true %>
+                              <button class="btn btn-primary" type="button"><%= link_to "edit picture", new_item_picture_path(params[:id])%></button>
+                            <% else %>
+                            <% end %>
                             </div>
                         </div>
                         </div>

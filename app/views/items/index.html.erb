@@ -4,7 +4,11 @@
 
 			<% @items.each do |item| %>
 				<div class="card border-primary mb-3" style="min-width: 20rem;">
+        <% if item.picture.attached? == true%>
+          <%= image_tag item.picture, alt: 'picture', class: "card-img-top" %>
+        <% else %>
 					<img src="<%= item.image_url %>" class="card-img-top">
+        <% end %>
 					<%= item.title %>
 					<%= item.description %>
 					<%= item.price %>			
@@ -14,7 +18,3 @@
 		</div>
 	</div>
 </div>
-
-
-
-

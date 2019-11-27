@@ -2,7 +2,9 @@ Rails.application.routes.draw do
 
 	root to: 'page_statics#index'
 	devise_for :users
-	resources :items
+  resources :items do
+    resources :pictures, only: [:create, :new]
+  end
 	resources :users do
 		resources :carts
 	end

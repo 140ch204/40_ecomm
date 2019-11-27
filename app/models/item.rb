@@ -3,6 +3,7 @@ class Item < ApplicationRecord
   has_many :orders, through: :ordered_items
   has_many :cart_elements
   has_many :carts, through: :cart_elements
+  has_one_attached :picture
 
   validates :title,
     presence: true,
