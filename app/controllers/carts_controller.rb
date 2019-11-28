@@ -1,5 +1,8 @@
 class CartsController < ApplicationController
-  before_action :authenticate_user!
+
+  before_action :authenticate_user!, only: [:index, :show, :edit, :update, :destroy]
+  before_action :check_cart, only: [:index, :show, :edit, :update, :destroy]
+
   def new
     @cart = Cart.new
   end
@@ -31,5 +34,14 @@ class CartsController < ApplicationController
   def destroy
     @cart = Cart.find(params[:id])
     @cart.destroy
+  end
+
+  private
+  
+  def check_cart
+    if current_user.id != Cart.find(params[:id]).user_id
+      flash[:notice] = "You can't see that."
+      redirect_to root_path
+    end
   end
 end
