@@ -35,7 +35,11 @@
               <% @cart_items.each_with_index do |item, index|%>
               <tr class="rem1">
                 <td class="invert"><%= i += 1 %></td>
-                <td class="invert-image"><img src=<%= @items[index].image_url %>, class="card-img-top" alt="..."></td>
+                <% if @items[index].picture.attached? == true%>
+									  <div class="thumb-image"> <%= image_tag @items[index].picture, alt: 'picture' %> data-imagezoom="true" class="img-fluid" alt=" "> </div>
+									<% else %>
+									  <td class="invert-image"><img src=<%= @items[index].image_url %>, class="card-img-top" alt="..."></td>
+									<% end %>
                 <td class="invert">
                   <div class="quantity">
                     <div class="quantity-select">
@@ -73,7 +77,7 @@
                     <label class="control-label">Change your delivery adress (optional): </label>
                     <input class="billing-address-name form-control" type="text" name="name" placeholder="New email adress">
                   </div>
-                  <button class="submit check_out">Delivery to this Address</button>
+                  <button class="submit check_out"><%= link_to "Delivery to this Address", root_path %></button>
                 </div>
               </section>
             </form>
