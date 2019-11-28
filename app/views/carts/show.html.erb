@@ -1,14 +1,14 @@
-<div class="using-border py-3">
-  <div class="inner_breadcrumb  ml-4">
-    <ul class="short_ls">
-      <li>
-        <%= link_to "home", root_path()%>
-        <span>/ /</span>
-      </li>
-      <li>Checkout</li>
-    </ul>
-  </div>
-</div>
+<!-- short -->
+        <br><br>
+        <div class="using-border py-3">
+            <div class="inner_breadcrumb  ml-4">
+                <ul class="short_ls">
+                <li><h4>Checkout Zone</h4></li>
+                </ul>
+            </div>
+        </div>
+        <br><br>
+<!-- //short-->
 
 <section class="checkout py-lg-4 py-md-3 py-sm-3 py-3">
   <div class="container py-lg-5 py-md-4 py-sm-4 py-3">
@@ -35,17 +35,17 @@
               <% @cart_items.each_with_index do |item, index|%>
               <tr class="rem1">
                 <td class="invert"><%= i += 1 %></td>
-                <td class="invert-image"><img src=<%= @items[index].image_url %> class="card-img-top" alt="..."></td>
+                <td class="invert-image"><img src=<%= @items[index].image_url %>, class="card-img-top" alt="..."></td>
                 <td class="invert">
                   <div class="quantity">
                     <div class="quantity-select">
-                    <%= link_to cart_element_path(cart_elem_id: @cart_items[index].id, quantity: -1), method: :put do%>
+                      <%= link_to cart_element_path(cart_elem_id: @cart_items[index].id, quantity: -1), method: :put do%>
                       <div class="entry value-minus">&nbsp;</div>
-                    <% end %>
+                      <% end %>
                       <div class="entry value"><span><%= item.quantity %></span></div>
-                    <%= link_to cart_element_path(cart_elem_id: @cart_items[index].id, quantity: 1), method: :put do%>
+                      <%= link_to cart_element_path(cart_elem_id: @cart_items[index].id, quantity: 1), method: :put do%>
                       <div class="entry value-plus active">&nbsp;</div>
-                    <% end %>
+                      <% end %>
                     </div>
                   </div>
                 </td>
@@ -53,7 +53,7 @@
                 <td class="invert"><%= @items[index].price %></td>
                 <td class="invert">
                   <%= link_to cart_element_path(cart_elem_id: @cart_items[index].id), method: :delete do %>
-                    <%= content_tag :span, "", :class => "far fa-trash-alt", style: 'color:#000000' %>
+                  <%= content_tag :span, "", :class => "far fa-trash-alt", style: 'color:#000000' %>
                   <% end %>
                 </td>
               </tr>
