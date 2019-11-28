@@ -1,0 +1,37 @@
+<div class="using-border py-3">
+  <div class="inner_breadcrumb  ml-4">
+    <ul class="short_ls">
+      <li>
+        <%= link_to "home", root_path()%>
+        <span>/ /</span>
+      </li>
+      <li>Users</li>
+    </ul>
+  </div>
+</div>
+
+<section class="checkout py-lg-4 py-md-3 py-sm-3 py-3">
+  <div class="container py-lg-5 py-md-4 py-sm-4 py-3">
+    <table class="table">
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">Email</th>
+        <th scope="col">Created at</th>
+        <th scope="col">Admin</th>
+        <th scope="col"></th>
+      </tr>
+      <tbody>
+        <% i=0 %>
+        <% @users.each do |user|%>
+        <tr>
+          <td><%= user.id %></td>
+          <td><%= user.email %></td>
+          <td><%= user.created_at.strftime("Inscrit depuis le %d/%m/%Y")  %></td>
+          <td><%= "admin" if user.admin%></td>           
+          <td><%= link_to "See More", admin_users_path, style: 'color:#ff3b9f' %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</section>

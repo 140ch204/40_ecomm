@@ -1,40 +1,80 @@
 module Admin
 
 	class ChargesController < ApplicationController
-
 		before_action :check_if_admin
+		after_action :generate_order, only: [:create]
 
 		def new
-			@event = Event.find(params[:id])
-			@amount = @event.price
+			@user = current_user
+			@cart = @user.cart
+			@cart_items = CartElement.where(cart_id: @cart.id)
+			@amount = 0
+			@cart_items.each do |item|
+				@amount += Item.find(item.item_id).price.to_i * item.quantity
+			end
 		end
 
 		def create
-		# Amount in cents
-
+			@amount = params[:amount]
 			customer = Stripe::Customer.create({
-			email: params[:stripeEmail],
-			source: params[:stripeToken],
+				email: params[:stripeEmail],
+				source: params[:stripeToken],
 			})
 
 			charge = Stripe::Charge.create({
-			customer: current_user.id,
-			amount: @amount,
-			description: "Paiement de #{current_user.email}",
-			currency: 'eur',
+				customer: customer.id,
+				amount: @amount,
+				description: "Paiement de #{current_user.email}",
+				currency: 'eur',
 			})
 
-			rescue Stripe::CardError => e
+			redirect_to orders_path
+
+		rescue Stripe::CardError => e
 			flash[:error] = e.message
 			redirect_to new_charge_path
 		end
 
-		def check_if_admin
-			if current_user.is_admin == false
-				flash[:admin] = "Must be admin"
-		  	redirect_to root_path
-		end
+		private
+
+		def generate_order
+			@order = Order.create(user_id: current_user.id)
+
+			generate_ordered_elements
+
+			clean_cart
 		end
 
+		def generate_ordered_elements
+			@user = current_user
+			@cart = @user.cart
+			@cart_items = CartElement.where(cart_id: @cart.id)
+			@order_id = @order.id
+			puts "X"*100
+			puts @order
+			puts "X"*100
+			@cart_items.each do |item|
+				OrderedItem.create(order_id: @order_id,
+					item_id: item.item_id,
+					quantity: item.quantity)
+			end
+		end
+
+		def clean_cart
+			@user = current_user
+			@cart = @user.cart
+			@cart_items = CartElement.where(cart_id: @cart.id)
+			@cart_items.each do |item|
+				item.destroy
+			end
+		end
+
+		def check_if_admin
+			if current_user.admin == false
+				flash[:notice] = "Must be admin"
+				redirect_to root_path
+			end
+		end
 	end
+
 end

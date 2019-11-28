@@ -1,3 +1,46 @@
-<div>
-	<h1>Bienvenue dans votre espace d'aministration.</h1>
+<div class="using-border py-3">
+  <div class="inner_breadcrumb  ml-4">
+    <ul class="short_ls">
+      <li>
+        <%= link_to "home", root_path()%>
+        <span>/ /</span>
+      </li>
+      <li>Key Performance Indicators</li>
+    </ul>
+  </div>
 </div>
+
+<section class="checkout py-lg-4 py-md-3 py-sm-3 py-3">
+  <div class="container py-lg-5 py-md-4 py-sm-4 py-3">
+    <table class="table">
+
+      <tbody>
+        <tr>
+          <th scope="row">Users</th>
+          <td><%= @nb_users %></td>          
+          <td><%= link_to "See More", admin_users_path, style: 'color:#ff3b9f' %></td>
+        </tr>
+        <tr>
+          <th scope="row">Items</th>
+          <td><%= @amount_sells %> €</td>          
+          <td><%= link_to "See more", admin_items_path, style: 'color:#ff3b9f' %></td>
+        </tr>
+        <tr>
+          <th scope="row">Orders</th>
+          <td><%= @nb_orders %></td>          
+          <td><%= link_to "See more", admin_orders_path, style: 'color:#ff3b9f' %></td>
+        </tr>
+        <tr>
+          <th scope="row">Temporary Carts in value</th>
+          <td><%= @carts_value %> €</td>          
+          <td><%= link_to "See more", admin_carts_path, style: 'color:#ff3b9f' %></td>
+        </tr>
+        <tr>
+          <th scope="row">Total sells</th>
+          <td><%= @amount_sells %> €</td>          
+          <td><%= link_to "See more", admin_orders_path, style: 'color:#ff3b9f' %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
