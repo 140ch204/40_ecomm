@@ -1,12 +1,8 @@
 class ChargesController < ApplicationController
 
-	after_action :generate_ordered_elements, only: [:create]
-	after_action :generate_order, only: [:create]	
-	after_action :clean_cart, only: [:create]
+	after_action :generate_order, only: [:create]
 
 	def new
-		puts "X"*50
-		puts params
 		@user = current_user
 		@cart = @user.cart
 		@cart_items = CartElement.where(cart_id: @cart.id)
@@ -17,8 +13,6 @@ class ChargesController < ApplicationController
 	end
 
 	def create
-		puts "X" *50
-		puts params
 		@amount = params[:amount]
 		customer = Stripe::Customer.create({
 			email: params[:stripeEmail],
@@ -39,21 +33,27 @@ class ChargesController < ApplicationController
 		redirect_to new_charge_path
 	end
 
+	private
+
 	def generate_order
-		order = Order.create(user_id: current_user.id)
-		return order.id
+		@order = Order.create(user_id: current_user.id)
+
+		generate_ordered_elements
+
+		clean_cart
 	end
 
 	def generate_ordered_elements
 		@user = current_user
 		@cart = @user.cart
 		@cart_items = CartElement.where(cart_id: @cart.id)
+		@order_id = @order.id
+		puts "X"*100
+		puts @order
+		puts "X"*100
 		@cart_items.each do |item|
-			puts "X"*100
-			puts order.id
-			puts "X"*100
-			OrderedItem.create(order_id: order.id,
-				item_id: item.id,
+			OrderedItem.create(order_id: @order_id,
+				item_id: item.item_id,
 				quantity: item.quantity)
 		end
 	end

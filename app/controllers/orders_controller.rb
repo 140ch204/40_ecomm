@@ -5,17 +5,16 @@ class OrdersController < ApplicationController
 	def index
 		@user = current_user
 		@orders = Order.where(user_id: @user.id)
-		puts "X" *50
-		puts @orders
-		puts "X" *50
 	end
 
 	def show
 		@order = Order.find(params[:id])
 		@ordered_items = OrderedItem.where(order_id: @order.id)
 		@purchases = []
+		@amount = 0
 		@ordered_items.each do |item|
 			@purchases << Item.find(item.item_id)
+			@amount += Item.find(item.item_id).price * item.quantity
 		end
 	end
 
