@@ -1,0 +1,43 @@
+<div class="using-border py-3">
+  <div class="inner_breadcrumb  ml-4">
+    <ul class="short_ls">
+      <li>
+        <%= link_to "dashboard", admin_root_path()%>
+        <span>/ /</span>
+      </li>
+      <li>Orders</li>
+    </ul>
+  </div>
+</div>
+
+<section class="checkout py-lg-4 py-md-3 py-sm-3 py-3">
+  <div class="container py-lg-5 py-md-4 py-sm-4 py-3">
+    <table class="table">
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">User</th>
+        <th scope="col">Created at</th>
+        <th scope="col">Value</th>
+        <th scope="col"></th>
+      </tr>
+      <tbody>
+        <% @orders.each do |order|%>
+        <tr>
+          <td><%= order.id %></td>
+          <td><%= order.user_id %></td>
+          <td><%= order.created_at.strftime("Recorded: %d/%m/%Y")  %></td>
+          <td>
+            <% ordered_items = OrderedItem.where(order_id: order.id) %>
+            <% amount = 0 %>
+            <% ordered_items.each do |item| %>
+            <% amount += Item.find(item.item_id).price * item.quantity %>
+            <% end %>
+            <%= amount %> €
+          </td>           
+          <td><%= link_to "See More", admin_order_path(order.id), style: 'color:#ff3b9f' %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </section>

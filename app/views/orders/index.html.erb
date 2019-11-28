@@ -38,8 +38,8 @@
                   <% amount = 0 %>
                   <% ordered_items.each do |item| %>
                     <% amount += Item.find(item.item_id).price * item.quantity %>
-                    <%= amount %> €
                   <% end %>
+                  <%= amount %> €
                 </td>
                 <td class="invert"><%= link_to "See more", order_path(order.id), style: 'color:#ff3b9f' %></td>
               </tr>

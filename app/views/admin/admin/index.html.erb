@@ -2,7 +2,7 @@
   <div class="inner_breadcrumb  ml-4">
     <ul class="short_ls">
       <li>
-        <%= link_to "home", root_path()%>
+        <%= link_to "dashboard", admin_root_path()%>
         <span>/ /</span>
       </li>
       <li>Key Performance Indicators</li>
@@ -22,7 +22,7 @@
         </tr>
         <tr>
           <th scope="row">Items</th>
-          <td><%= @amount_sells %> €</td>          
+          <td><%= @nb_items%></td>          
           <td><%= link_to "See more", admin_items_path, style: 'color:#ff3b9f' %></td>
         </tr>
         <tr>

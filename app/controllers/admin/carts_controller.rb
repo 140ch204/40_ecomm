@@ -3,6 +3,10 @@ module Admin
   class CartsController < ApplicationController
     before_action :check_if_admin
 
+    def index
+      @carts = Cart.all
+    end
+
     def new
       @cart = Cart.new
     end
@@ -15,9 +19,8 @@ module Admin
       redirect_to items_path
     end
 
-    def show    
-      @user = current_user
-      @cart = Cart.find_by(user_id: @user.id)
+    def show      
+      @cart = Cart.find(params[:id])
       @cart_items = CartElement.where(cart_id: @cart.id)
       @items = []
       @amount = 0

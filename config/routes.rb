@@ -8,8 +8,8 @@ Rails.application.routes.draw do
 
 	resources :cart_elements, only: [:destroy, :update, :create]
 
-	resources :users do
-		resources :carts
+	resources :users, :path => "mon_profil" do
+		resources :carts, :path => "mon_panier"
 	end
 
 	namespace :admin do
@@ -17,6 +17,6 @@ Rails.application.routes.draw do
 		resources :users, :charges, :orders, :carts, :items
 	end
 
-	resources :orders
+	resources :orders, :path => "mes_commandes"
 	resources :charges
 end
