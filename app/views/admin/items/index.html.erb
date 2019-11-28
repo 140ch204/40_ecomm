@@ -1,0 +1,38 @@
+<div class="using-border py-3">
+  <div class="inner_breadcrumb  ml-4">
+    <ul class="short_ls">
+      <li>
+        <%= link_to "dashboard", admin_root_path()%>
+        <span>/ /</span>
+      </li>
+      <li>Items</li>
+    </ul>
+  </div>
+</div>
+
+<section class="checkout py-lg-4 py-md-3 py-sm-3 py-3">
+  <div class="container py-lg-5 py-md-4 py-sm-4 py-3">
+    <table class="table">
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">Title</th>
+        <th scope="col">Description</th>
+        <th scope="col">Price</th>
+        <th scope="col">Created at</th>
+        <th scope="col"></th>
+      </tr>
+      <tbody>
+        <% @items.each do |item|%>
+        <tr>
+          <td><%= item.id %></td>
+          <td><%= item.title %></td>
+          <td><%= item.description %></td>
+          <td><%= item.price %></td>
+          <td><%= item.created_at.strftime("Since: %d/%m/%Y")  %></td>          
+          <td><%= link_to "See More and Update", admin_item_path(item.id), style: 'color:#ff3b9f' %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </section>

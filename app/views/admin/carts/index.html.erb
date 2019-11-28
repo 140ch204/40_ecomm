@@ -1,0 +1,43 @@
+<div class="using-border py-3">
+  <div class="inner_breadcrumb  ml-4">
+    <ul class="short_ls">
+      <li>
+        <%= link_to "dashboard", admin_root_path()%>
+        <span>/ /</span>
+      </li>
+      <li>Carts</li>
+    </ul>
+  </div>
+</div>
+
+<section class="checkout py-lg-4 py-md-3 py-sm-3 py-3">
+  <div class="container py-lg-5 py-md-4 py-sm-4 py-3">
+    <table class="table">
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">User</th>
+        <th scope="col">Created at</th>
+        <th scope="col">Value</th>
+        <th scope="col"></th>
+      </tr>
+      <tbody>
+        <% @carts.each do |cart|%>
+        <tr>
+          <td><%= cart.id %></td>
+          <td><%= cart.user_id %></td>
+          <td><%= cart.created_at.strftime("Recorded: %d/%m/%Y")  %></td>
+          <td>
+            <% cart_elements = CartElement.where(cart_id: cart.id) %>
+            <% amount = 0 %>
+            <% cart_elements .each do |item| %>
+            <% amount += Item.find(item.item_id).price * item.quantity %>
+            <% end %>
+            <%= amount %> €
+          </td>           
+          <td><%= link_to "See More", admin_cart_path(cart.id), style: 'color:#ff3b9f' %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </section>

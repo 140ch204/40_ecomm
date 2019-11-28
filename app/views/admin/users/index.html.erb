@@ -2,7 +2,7 @@
   <div class="inner_breadcrumb  ml-4">
     <ul class="short_ls">
       <li>
-        <%= link_to "home", root_path()%>
+        <%= link_to "home", admin_root_path()%>
         <span>/ /</span>
       </li>
       <li>Users</li>
@@ -26,9 +26,9 @@
         <tr>
           <td><%= user.id %></td>
           <td><%= user.email %></td>
-          <td><%= user.created_at.strftime("Inscrit depuis le %d/%m/%Y")  %></td>
-          <td><%= "admin" if user.admin%></td>           
-          <td><%= link_to "See More", admin_users_path, style: 'color:#ff3b9f' %></td>
+          <td><%= user.created_at.strftime("Registred: %d/%m/%Y")  %></td>
+          <td><%= "admin" if user.admin %></td>           
+          <td><%= link_to "See More", admin_user_path(user.id), style: 'color:#ff3b9f' %></td>
         </tr>
         <% end %>
       </tbody>

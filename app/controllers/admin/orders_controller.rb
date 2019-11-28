@@ -5,8 +5,8 @@ module Admin
 
 
 		def index
-			@user = current_user
-			@orders = Order.where(user_id: @user.id)
+			@orders = Order.all
+
 		end
 
 		def show
@@ -43,6 +43,15 @@ module Admin
 				flash[:notice] = "Must be admin"
 				redirect_to root_path
 			end
+		end
+
+		def sell_value
+			@ordered_items = OrderedItem.find_by(order_id: order.id)
+			@amount = 0
+			@ordered_items.each do |item|
+				@amount += Item.find(item.item_id).price * item.quantity
+			end
+			return @amount
 		end
 	end
 
