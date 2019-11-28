@@ -1,21 +1,85 @@
- <%= form_tag charges_path(:amount => @amount) do %>
-   <article>
-     <% if flash[:error].present? %>
-       <div id="error_explanation">
-         <p><%= flash[:error] %></p>
-       </div>
-     <% end %>
-     <label class="amount">
-       <span>Amount: <%= @amount %> €</span>
-     </label>
-   </article>
+<div class="using-border py-3">
+  <div class="inner_breadcrumb  ml-4">
+    <ul class="short_ls">
+      <li>
+        <a href="/">home</a>
+        <span>/ /</span>
+      </li>
+      <li>Payment Page</li>
+    </ul>
+  </div>
+</div>
 
-   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-           data-description="Paiement"
-           data-amount="<%= @amount*100 %>"
-           data-currency='eur'
-           data-locale="auto"></script>
-   </div>
+<section class="checkout py-lg-4 py-md-3 py-sm-3 py-3">
+         <div class="container py-lg-5 py-md-4 py-sm-4 py-3">
+            <div class="ads-grid_shop">
+               <div class="shop_inner_inf">
+                  <div class="privacy about">
+                     <h3>Pay<span>ment Page</span></h3><br/>
+                     <!--/tabs-->
+                     <div class="responsive_tabs">
+                        <div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
+                           <ul class="resp-tabs-list">
+                              <li class="resp-tab-item resp-tab-active" aria-controls="tab_item-3" role="tab">Securised by Stripe</li>
+                           </ul>
+                           <div class="resp-tabs-container">
 
- <% end %>
+                              <div class="tab4 resp-tab-content resp-tab-content-active" aria-labelledby="tab_item-3" style="display:block">
+                                 <div class="row pay_info">
+                                    <div class="col-md-6">
+                                        <div style="width: 100%">
+                                          <img class="fit-picture" 
+                                          style="height: 100%; width: 100%; object-fit: contain"
+                                          src="https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto/gigs/110743595/original/308a7074e1aa97d87309de5ca2354ccd6729d58a/integrate-stripe-subscription-and-one-time-payment.jpg"
+                                          alt="">
+                                        </div><br/>
+                                    </div>
+                                    <div class="col-md-6">
+                                       
+                                      <%= form_tag charges_path(:amount => @amount) do %>
+                                            <article>
+                                              <% if flash[:error].present? %>
+                                                <div id="error_explanation">
+                                                  <p><%= flash[:error] %></p>
+                                                </div>
+                                              <% end %>
+                                              <label class="amount">
+                                                <span>You are ordering pictures for <%= "#{@amount}" %> €</span>
+                                              </label>
+                                            </article>
+
+                                            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                                                    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                                                    data-description="Paiement"
+                                                    data-amount="<%= @amount*100 %>"
+                                                    data-currency='eur'
+                                                    data-locale="auto"></script>
+                                            </div>
+                                          <% end %>
+
+
+                                       
+                                    </div>
+                                    <div class="clearfix"></div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <!--//tabs-->
+                  </div>
+               </div>
+               <!-- //payment -->
+               <div class="clearfix"></div>
+            </div>
+         </div>
+      </section>
+
+
+
+
+
+
+
+
+
