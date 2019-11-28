@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 	before_action :authenticate_user!, only: [:index, :show, :edit, :update, :destroy]
 	before_action :is_admin?, only: [:index]
-	before_action :current_user, only: [:index, :show, :edit, :update, :destroy]
+	before_action :check_user, only: [:index, :show, :edit, :update, :destroy]
 
 
 	def index
@@ -36,7 +36,7 @@ class UsersController < ApplicationController
 		end
 	end
 
-	def current_user
+	def check_user
 		if current_user.id != User.find(params[:id]).id
 			flash[:notice] = "You can't see that."
 			redirect_to root_path

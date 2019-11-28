@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
 	before_action :authenticate_user!, only: [:index, :show, :edit, :update, :destroy]
-	# before_action :is_admin?, only: [:index]
+
 
 	def index
 		@user = current_user
