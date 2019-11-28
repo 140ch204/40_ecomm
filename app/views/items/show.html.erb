@@ -37,7 +37,9 @@
 						<div class="toys single-item singlepage">
 							<form action="#" method="post">
 								<button type="submit" class="toys-cart-2 ptoys-cart add">
+                <% if user_signed_in?%>
 									<%= link_to "Add to cart", cart_elements_path(cart_id: current_user.cart.id, item_id: @item.id), method: :post %>
+                <% end %>
 								</button>
 							</form>
 							<% if current_user != nil && current_user.admin? == true %>
