@@ -1,8 +1,6 @@
 class ChargesController < ApplicationController
 
-	after_action :generate_ordered_elements, only: [:create]
-	after_action :generate_order, only: [:create]	
-	after_action :clean_cart, only: [:create]
+	after_action :generate_order, only: [:create]
 
 	def new
 		@user = current_user
@@ -38,32 +36,24 @@ class ChargesController < ApplicationController
 	private
 
 	def generate_order
-		orderx = Order.create(user_id: current_user.id)
-		puts "X"*100
-		puts "0"*100
-		puts order_id = orderx.id
-		puts "X"*100
-		return order_id
+		@order = Order.create(user_id: current_user.id)
+
+		generate_ordered_elements
+
+		clean_cart
 	end
 
 	def generate_ordered_elements
 		@user = current_user
 		@cart = @user.cart
 		@cart_items = CartElement.where(cart_id: @cart.id)
-		@order = Order.last.id
+		@order_id = @order.id
 		puts "X"*100
 		puts @order
 		puts "X"*100
 		@cart_items.each do |item|
-			
-			puts "X"*100
-			puts item.id
-			puts item.quantity
-
-			puts "X"*100
-
-			OrderedItem.create(order_id: @order,
-				item_id: item.id,
+			OrderedItem.create(order_id: @order_id,
+				item_id: item.item_id,
 				quantity: item.quantity)
 		end
 	end
