@@ -1,49 +1,60 @@
 <div class="container-fluid">
     <div class="hedder-up row">
         <div class="col-lg-3 col-md-3 logo-head">
-            
-                <%= link_to root_path do %> 
-                <%= image_tag "Nekopix.png", class: "navbar-brand" %>
-                <% end %>
-            
+        <%= link_to root_path do %>
+        <%= image_tag "Nekopix.png", class:"navbar-brand"%>
+        <% end%>
         </div>
         <div class="col-lg-5 col-md-6 search-right">
-            <form class="form-inline my-lg-0">
+            <form class="form-inline my-lg-0 align-middle mr-2">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search">
                 <button class="btn" type="submit">Search</button>
             </form>
         </div>
-        <div class="col-lg-4 col-md-3 right-side-cart content-center">
+        <div class="col-lg-4 col-md-3 right-side-cart">
             <div class="cart-icons">
                 <ul>
-                    <li>
-                      <% if current_user != nil%>
-                        <%= link_to "", user_path(current_user.id), class: "fa-lg far fa-user" %>
-                      <% else %>
-                        <%= link_to "", new_user_session_path, class: "fa-lg far fa-user" %>
-                      <% end %>
-                    </li>
-                    <li></li>
-                    <li>
-                        <% if current_user != nil && current_user.cart != nil%>
-                          <%= link_to "", user_cart_path(current_user.id, current_user.cart.id), class: "fa-lg fas fa-cart-arrow-down" %>
-                        <% else %>
-                          <%= link_to "", new_user_session_path, class: "fa-lg fas fa-cart-arrow-down" %>
-                        <% end %>
-                    </li>
-                    <li></li>
-                    <li>
-                        <% if current_user != nil && current_user.cart != nil%>
-                          <%= link_to "", orders_path, class: "fa-lg far fa-file-alt" %>
-                        <% else %>
-                          <%= link_to "", new_user_session_path, class: "fa-lg far fa-file-alt" %>
-                        <% end %>
+                        <li>
+                            <% if current_user != nil%>
+                                <%= link_to user_path(current_user.id) do %>
+                                <span class="fa-lg far fa-user"></span>
+                                <% end %>
+                            <% else %>
+                                <%= link_to new_user_session_path do %>
+                                <span class="fa-lg far fa-user"></span>
+                                <% end %>
+                            <% end %>
+                        </li>
+                        <li></li>
+                        <li>
+                            <% if current_user != nil && current_user.cart != nil%>
+                                <%= link_to user_cart_path(current_user.id, current_user.cart.id) do %>
+                                <span class="fa-lg fas fa-cart-arrow-down"></span>
+                                <% end %>
+                            <% else %>
+                                <%= link_to new_user_session_path do %>
+                                <span class="fa-lg fas fa-cart-arrow-down"></span>
+                                <% end %>
+                            <% end %>
+                        </li>
+                        <li></li>
+                        <li>
+                            <% if current_user != nil && current_user.cart != nil%>
+                                <%= link_to orders_path do %>
+                                <span class="fa-lg far fa-file-alt"></span>
+                                <% end %>
+                            <% else %>
+                                <%= link_to new_user_session_path do %>
+                                <span class="fa-lg far fa-file-alt"></span>
+                                <% end %>
+                            <% end %>
                     </li>                    
                 </ul>
             </div>
         </div>
     </div>
 </div>
+
 <nav class="navbar navbar-expand-lg navbar-light">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -53,15 +64,15 @@
             <li class="nav-item active">
                 <%= link_to "home", root_path, class: "nav-link" %>
             </li>
-<!-- <li class="nav-item">
-<a href="about.html" class="nav-link">About</a>
-</li>
-<li class="nav-item">
-<a href="service.html" class="nav-link">Service</a>
-</li> -->
-<li class="nav-item">
-    <%= link_to "Shop Now", items_path, class: "nav-link" %>
-</li>
+        <!-- <li class="nav-item">
+                <a href="about.html" class="nav-link">About</a>
+            </li>
+            <li class="nav-item">
+                <a href="service.html" class="nav-link">Service</a>
+            </li> -->
+            <li class="nav-item">
+                <%= link_to "Shop Now", items_path, class: "nav-link" %>
+            </li>
 
 <div>
     <ul class="navbar-nav">
