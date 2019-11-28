@@ -1,4 +1,6 @@
 class Admin::AdminController < ApplicationController
+	before_action :check_if_admin
+	
 	def index
 		@nb_users = User.all.size
 		@nb_orders = Order.all.size
@@ -24,6 +26,13 @@ class Admin::AdminController < ApplicationController
 			@amount += Item.find(item.item_id).price * item.quantity
 		end
 		return @amount
+	end
+
+	def check_if_admin
+		if current_user.admin == false
+			flash[:notice] = "Must be admin"
+			redirect_to root_path
+		end
 	end
 
 end

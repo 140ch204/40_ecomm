@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
 	namespace :admin do
 		root to: 'admin#index'
-		resources :users, :charges, :orders, :carts
+		resources :users, :charges, :orders, :carts, :items
 	end
 
 	resources :orders

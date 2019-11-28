@@ -18,22 +18,27 @@
         <tr>
           <th scope="row">Users</th>
           <td><%= @nb_users %></td>          
-          <td><%= link_to "See More", root_path(), style: 'color:#ff3b9f' %></td>
+          <td><%= link_to "See More", admin_users_path, style: 'color:#ff3b9f' %></td>
+        </tr>
+        <tr>
+          <th scope="row">Items</th>
+          <td><%= @amount_sells %> €</td>          
+          <td><%= link_to "See more", admin_items_path, style: 'color:#ff3b9f' %></td>
         </tr>
         <tr>
           <th scope="row">Orders</th>
           <td><%= @nb_orders %></td>          
-          <td><%= link_to "See more", root_path(), style: 'color:#ff3b9f' %></td>
+          <td><%= link_to "See more", admin_orders_path, style: 'color:#ff3b9f' %></td>
         </tr>
         <tr>
           <th scope="row">Temporary Carts in value</th>
           <td><%= @carts_value %> €</td>          
-          <td><%= link_to "See more", root_path(), style: 'color:#ff3b9f' %></td>
+          <td><%= link_to "See more", admin_carts_path, style: 'color:#ff3b9f' %></td>
         </tr>
         <tr>
           <th scope="row">Total sells</th>
           <td><%= @amount_sells %> €</td>          
-          <td><%= link_to "See more", root_path(), style: 'color:#ff3b9f' %></td>
+          <td><%= link_to "See more", admin_orders_path, style: 'color:#ff3b9f' %></td>
         </tr>
       </tbody>
     </table>
