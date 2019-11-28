@@ -4,6 +4,7 @@ class Admin::AdminController < ApplicationController
 	def index
 		@nb_users = User.all.size
 		@nb_orders = Order.all.size
+		@nb_items = Item.all.size
 		@carts_value = carts_value
 		@amount_sells = sells_value
 	end

@@ -1,0 +1,56 @@
+<div class="using-border py-3">
+  <div class="inner_breadcrumb  ml-4">
+    <ul class="short_ls">
+      <li>
+        <%= link_to "dashboard", admin_root_path()%>
+        <span>/ /</span>
+      </li>
+      <li>Order</li>
+    </ul>
+  </div>
+</div>
+
+<section class="checkout py-lg-4 py-md-3 py-sm-3 py-3">
+  <div class="container py-lg-5 py-md-4 py-sm-4 py-3">
+    <div class="shop_inner_inf">
+      <div class="privacy about">
+        <h3>Order</h3>
+        <div class="checkout-right">
+          <h4>Order n°<%= @order.id %>, from user n°<%= @order.user_id %> contained:</h4>
+          <table class="timetable_sub">
+
+            <thead>
+              <tr>
+                <th>SL No.</th>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Product Name</th>
+                <th>Price</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% i=0 %>
+              <% @purchases.each do |item|%>
+              <tr class="rem1">
+                <td class="invert"><%= i += 1 %></td>
+                <td class="invert"><%= item.id %></td>
+                <td class="invert"><%= @ordered_items[(i - 1)].quantity %></td>
+                <td class="invert"><%= item.title %></td>
+                <td class="invert"><%= item.price %></td>
+              <% end %>
+            </tbody>
+          </table>
+        
+        <div class="checkout-left">
+          <div class="col-md-4 checkout-left-basket">              
+            <ul>
+              <li>Total <i>-</i> <span><%= @amount %> €</span></li>
+            </ul>
+          </div>
+        </div>
+</div>
+      </div>
+    </div>
+  </div>
+</section>
