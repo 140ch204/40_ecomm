@@ -30,48 +30,13 @@
                         <div class="container">
                             <div class="slider-info ">
                                 <h5>The Best Cat's Pics only for <br>You</h5>
-                                <div class="bottom-info">
-                                    <p>The best pics for all cat's lovers, all breeds in the same shop.</p>
-                                </div>
                                 <div class="outs_more-buttn">
-                                    <a href="about.html">Shop Now</a>
+                                    <%= link_to "Shop Now", items_path%>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </li>
-                <li>
-                    <div class="slider-img two-img">
-                        <div class="container">
-                            <div class="slider-info ">
-                                <h5>Sort Toys And Teddy bears<br>For Kids</h5>
-                                <div class="bottom-info">
-                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.Aenean commodo ligula eget dolorL orem ipsum dolor sit amet eget dolor</p>
-                                </div>
-                                <div class="outs_more-buttn">
-                                    <a href="about.html">Read More</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="slider-img three-img">
-                        <div class="container">
-                            <div class="slider-info">
-                                <h5>Best Toys And Dolls<br> For Kids</h5>
-                                <div class="bottom-info">
-                                    <p><b>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.Aenean commodo ligula eget dolorL orem ipsum dolor sit amet eget dolor</b></p>
-                                </div>
-                                <div class="outs_more-buttn">
-                                    <a href="about.html">Read More</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </div>
         <!-- This is here just to demonstrate the callbacks -->
                 <!-- <ul class="events">
                 <li>Example 4 callback events</li>
@@ -86,44 +51,56 @@
             <h3 class="title text-center mb-lg-5 mb-md-4  mb-sm-4 mb-3">Best Products</h3>
             <div class="row banner-below-w3l">
                 <div class="col-lg-4 col-md-6 col-sm-6 text-center banner-agile-flowers">
-                    <img src="https://image.noelshack.com/fichiers/2019/48/2/1574792385-a1.jpg" class="img-thumbnail" alt="">
+                    <%= link_to items_path do %> 
+                    <%= image_tag "https://image.noelshack.com/fichiers/2019/48/2/1574792385-a1.jpg", class:"img-thumbnail" %>
+                    <% end %>
                     <div class="banner-right-icon">
                         <h4 class="pt-3">Siamese</h4>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-6 text-center banner-agile-flowers">
-                    <img src="https://image.noelshack.com/fichiers/2019/48/2/1574792385-a2.jpeg" class="img-thumbnail" alt="">
+                    <%= link_to items_path do %> 
+                    <%= image_tag "https://image.noelshack.com/fichiers/2019/48/2/1574792385-a2.jpeg", class:"img-thumbnail" %>
+                    <% end %>
                     <div class="banner-right-icon">
                         <h4 class="pt-3">Persian</h4>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-6 text-center banner-agile-flowers">
-                    <img src="https://image.noelshack.com/fichiers/2019/48/2/1574792385-a3.jpg" class="img-thumbnail" alt="">
+                    <%= link_to items_path do %> 
+                    <%= image_tag "https://image.noelshack.com/fichiers/2019/48/2/1574792385-a3.jpg", class:"img-thumbnail" %>
+                    <% end %>
                     <div class="banner-right-icon">
                         <h4 class="pt-3">Maine Coon</h4>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-6 mt-3 text-center banner-agile-flowers">
-                    <img src="https://image.noelshack.com/fichiers/2019/48/2/1574792385-a4.jpg" class="img-thumbnail" alt="">
+                    <%= link_to items_path do %> 
+                    <%= image_tag "https://image.noelshack.com/fichiers/2019/48/2/1574792385-a4.jpg", class:"img-thumbnail" %>
+                    <% end %>
                     <div class="banner-right-icon">
                         <h4 class="pt-3">Ragdoll </h4>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-6 mt-3 text-center banner-agile-flowers">
-                    <img src="https://image.noelshack.com/fichiers/2019/48/2/1574792385-a5.jpg" class="img-thumbnail" alt="">
+                    <%= link_to items_path do %> 
+                    <%= image_tag "https://image.noelshack.com/fichiers/2019/48/2/1574792385-a5.jpg", class:"img-thumbnail" %>
+                    <% end %>
                     <div class="banner-right-icon">
                         <h4 class="pt-3">Bengal</h4>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-6 mt-3 text-center banner-agile-flowers">
-                    <img src="https://image.noelshack.com/fichiers/2019/48/2/1574792385-a6.jpg" class="img-thumbnail" alt="">
+                    <%= link_to items_path do %> 
+                    <%= image_tag "https://image.noelshack.com/fichiers/2019/48/2/1574792385-a6.jpg", class:"img-thumbnail" %>
+                    <% end %>
                     <div class="banner-right-icon">
                         <h4 class="pt-3">Birman</h4>
                     </div>
                 </div>
                 <div class="toys-grids-upper">
                     <div class="about-toys-off">
-                        <h2>Get Up to <span>20% Off </span>On Selected Pics</h2>
+                        <h2>Get Up to <span>50% Off </span>On Selected Pics</h2>
                     </div>
                 </div>
             </div>
