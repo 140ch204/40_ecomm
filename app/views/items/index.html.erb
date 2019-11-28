@@ -21,7 +21,9 @@
             </div>
             <div class="card-footer text-center">
                 <button type="submit" class="toys-cart ptoys-cart add">
+                  <% if user_signed_in?%>
                     <%= link_to "Add to cart", cart_elements_path(cart_id: current_user.cart.id, item_id: item.id), method: :post %>
+                  <% end %>
                 </button>
                 <hr>
                 <button type="submit" class="toys-cart ptoys-cart add">

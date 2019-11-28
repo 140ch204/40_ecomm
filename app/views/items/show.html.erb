@@ -1,86 +1,82 @@
-
-        <!-- short -->
-        <div class="using-border py-3">
-            <div class="inner_breadcrumb  ml-4">
-                <ul class="short_ls">
-                <li>
-                    <a href="index.html">Pics Station</a>
-                    <span>/ /</span>
-                </li>
-                <li><h4><%= @item.title %></h4></li>
-                </ul>
-            </div>
-        </div>
-        <!-- //short-->
-        <!--//banner -->
-    <!--/shop-->
-        <section class="banner-bottom py-lg-5 py-3">
-            <div class="container">
-                <div class="inner-sec-shop pt-lg-4 pt-3">
-                <div class="row">
-                    <div class="col-lg-4 single-right-left ">
-                        <div class="grid images_3_of_2">
-                            <div class="flexslider1">
-                            <ul class="slides">
-                                <li data-thumb="images/f2.jpg">
-                                  <% if @item.picture.attached? == true%>
-                                    <div class="thumb-image"> <%= image_tag @item.picture, alt: 'picture' %> data-imagezoom="true" class="img-fluid" alt=" "> </div>
-                                  <% else %>
-					                          <img src="<%= @item.image_url %>" class="card-img-top">
-                                  <% end %>
-                                </li>
-                            </ul>
-                            <div class="clearfix"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-8 single-right-left simpleCart_shelfItem">
-                        <h3><%= @item.title %></h3>
-                        <p><span class="item_price"><%= @item.price %>€</span>
-                            <del>99,99€</del>
-                        </p>
-                        <div class="occasion-cart">
-                            <div class="toys single-item singlepage">
-                            <form action="#" method="post">
-                                <button type="submit" class="toys-cart-2 ptoys-cart add">
-                                <%= link_to "Add to cart", cart_elements_path(cart_id: current_user.cart.id, item_id: @item.id), method: :post %>
-                                </button>
-                            </form>
-                            <% if current_user != nil && current_user.admin? == true %>
-                              <button class="btn btn-primary" type="button"><%= link_to "edit picture", new_item_picture_path(params[:id])%></button>
-                            <% else %>
-                            <% end %>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="clearfix"> </div>
-                    <br>
-                    <br>
-                    <!--/tabs-->
-                    <div class="responsive_tabs">
-                        <div id="horizontalTab">
-                        <br>
-                            <ul class="resp-tabs-list">
-                            <li>Description</li>
-                            </ul>
-                            <div class="resp-tabs-container">
-                            <!--/tab_one-->
-                            <div class="tab1">
-                                <div class="single_page text-justify">
-                                    <h6><%= @item.title %></h6>
-                                    <hr>
-                                    <p><%= @item.description %>
-                                    </p>
-                                </div>
-                            </div>
-                            <!--//tab_one-->
-                            </div>
-                        </div>
-                    </div>
-                    <!--//tabs-->
-                </div>
-                </div>
-            </div>
-        </section>
+<div class="using-border py-3">
+	<div class="inner_breadcrumb  ml-4">
+		<ul class="short_ls">
+			<li><h4>Pics Station // <%= @item.title %></h4></li>
+		</ul>
+	</div>
+</div>
+<!-- //short-->
+<!--//banner -->
+<!--/shop-->
+<section class="banner-bottom py-lg-5 py-3">
+	<div class="container">
+		<div class="inner-sec-shop pt-lg-4 pt-3">
+			<div class="row">
+				<div class="col-lg-4 single-right-left ">
+					<div class="grid images_3_of_2">
+						<div class="flexslider1">
+							<ul class="slides">
+								<li data-thumb="images/f2.jpg">
+									<% if @item.picture.attached? == true%>
+									<div class="thumb-image"> <%= image_tag @item.picture, alt: 'picture' %> data-imagezoom="true" class="img-fluid" alt=" "> </div>
+									<% else %>
+									<img src="<%= @item.image_url %>" class="card-img-top">
+									<% end %>
+								</li>
+							</ul>
+							<div class="clearfix"></div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-8 single-right-left simpleCart_shelfItem">
+					<h3><%= @item.title %></h3>
+					<p><span class="item_price"><%= @item.price %>€</span>
+						<del>99,99€</del>
+					</p>
+					<div class="occasion-cart">
+						<div class="toys single-item singlepage">
+							<form action="#" method="post">
+								<button type="submit" class="toys-cart-2 ptoys-cart add">
+                <% if user_signed_in?%>
+									<%= link_to "Add to cart", cart_elements_path(cart_id: current_user.cart.id, item_id: @item.id), method: :post %>
+                <% end %>
+								</button>
+							</form>
+							<% if current_user != nil && current_user.admin? == true %>
+							<button class="btn btn-primary" type="button"><%= link_to "edit picture", new_item_picture_path(params[:id])%></button>
+							<% else %>
+							<% end %>
+						</div>
+					</div>
+				</div>
+				<div class="clearfix"> </div>
+				<br>
+				<br>
+				<!--/tabs-->
+				<div class="responsive_tabs">
+					<div id="horizontalTab">
+						<br>
+						<ul class="resp-tabs-list">
+							<li>Description</li>
+						</ul>
+						<div class="resp-tabs-container">
+							<!--/tab_one-->
+							<div class="tab1">
+								<div class="single_page text-justify">
+									<h6><%= @item.title %></h6>
+									<hr>
+									<p><%= @item.description %>
+									</p>
+								</div>
+							</div>
+							<!--//tab_one-->
+						</div>
+					</div>
+				</div>
+				<!--//tabs-->
+			</div>
+		</div>
+	</div>
+</section>
 <br>
 <br>
