@@ -27,11 +27,11 @@ class UsersController < ApplicationController
 	
 	private
 
-	  def is_admin?
-	    if !current_user.nil? && current_user.admin = true
-	    	return true
-	    	flash[:notice] = "You can access admins' pages."
-	    end
-	  end
+	def is_admin?
+	if !current_user.nil? && current_user.admin = true
+		return true
+		flash[:notice] = "You can access admins' pages."
+	end
+	end
 
 end

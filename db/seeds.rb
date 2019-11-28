@@ -18,19 +18,22 @@ puts "#{user_count} users created"
 # Item.destroy_all
 item_count = 0
 image_url = ["https://cdn.mos.cms.futurecdn.net/vChK6pTy3vN3KbYZ7UU7k3-970-80.jpg",	
-			"https://images.unsplash.com/photo-1547191783-94d5f8f6d8b1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
-			"http://www.royalfragrance.fr/wp-content/uploads/2015/07/M1redim1.jpg",
-			"https://www.wikichat.fr/wp-content/uploads/sites/2/dsc04085-1024x685.jpg",
 			"https://www.uncompagnon.fr/upload/annonces/71624/02-20190325_114008.jpg",
 			"https://www.uncompagnon.fr/upload/annonces/75936/02-img_4207.jpg",
-			"https://www.eleveurs-online.com/data/eleveur/148/1600-147188.150.jpg",
 			"https://www.ragdollfrance.com/images/labro_031527_900px.jpg",
 			"https://img.ohmymag.com/article/480/bengal/chaton-bengal_d52207e2a93014e5b31895cb6c7007496de6cc73.jpg",
 			"https://www.ragdollfrance.com/images/labro_031527_900px.jpg",
-			"https://www.cany-express.com/public/img/big/2jpg_5b53320a3b695.jpg",	
+			"https://www.uncompagnon.fr/upload/annonces/78101/01-dsc05905.jpg",
+			"https://www.uncompagnon.fr/upload/annonces/78016/04-image4.jpg",
+			"https://www.uncompagnon.fr/upload/annonces/78001/03-img-20190709-wa0001.jpg",
+			"https://www.uncompagnon.fr/upload/annonces/77198/02-1911nessycrbl2.jpg",
+			"https://www.uncompagnon.fr/upload/annonces/77152/01-img_9444.jpg",
+			"https://www.uncompagnon.fr/upload/annonces/77031/02-img_5952.jpg",
+			"https://www.uncompagnon.fr/upload/annonces/78111/01-_20191022_174439.jpg",
+			"https://www.uncompagnon.fr/upload/annonces/78042/02-4f07cb60-0812-44e6-82db-53de2ece9b6b.jpg",
 			"https://www.zooplus.fr/magazine/wp-content/uploads/2017/10/fotolia_94870753-1-768x512.jpg"]
 
-title = ["Tigrou","Caramel","Felix","Simba","Gribouille","Garfield","Minette","Chipie","Caline","Nala","Maya","Mimi"]
+title = ["Naruto","Luffy","Zoro","Tigrou","Caramel","Felix","Simba","Gribouille","Garfield","Minette","Chipie","Caline","Nala","Maya","Mimi"]
 
 description = ["The Birman, also called 
 	the 'Sacred Cat of Burma', is a domestic cat breed. The Birman is a long-haired, 
