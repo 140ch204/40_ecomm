@@ -33,8 +33,15 @@
               <tr class="rem1">
                 <td class="invert"><%= i += 1 %></td>
                 <td class="invert"><%= order.id %></td>
-                <td class="invert"><%= order.id %></td>
-                <td class="invert"><%= link_to "See more", order_path(order.id), style: 'color:pink' %></td>
+                <td class="invert">
+                  <% ordered_items = OrderedItem.where(order_id: order.id) %>
+                  <% amount = 0 %>
+                  <% ordered_items.each do |item| %>
+                    <% amount += Item.find(item.item_id).price * item.quantity %>
+                    <%= amount %> €
+                  <% end %>
+                </td>
+                <td class="invert"><%= link_to "See more", order_path(order.id), style: 'color:#ff3b9f' %></td>
               </tr>
               <% end %>
             </tbody>

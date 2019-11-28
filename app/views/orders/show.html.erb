@@ -32,31 +32,27 @@
 
             <tbody>
               <% i=0 %>
-              <% @purchases.each_with_index do |item, index|%>
+              <% @purchases.each do |item|%>
               <tr class="rem1">
                 <td class="invert"><%= i += 1 %></td>
-                <td class="invert-image"><img src=<%= @items[index].image_url %> class="card-img-top" alt="..."></td>
-                <td class="invert">
-                  <div class="quantity">
-                    <div class="quantity-select">
-                      <div class="entry value-minus">&nbsp;</div>
-                      <div class="entry value"><span><%= item.quantity %></span></div>
-                      <div class="entry value-plus active">&nbsp;</div>
-                    </div>
-                  </div>
-                </td>
-                <td class="invert"><%= @items[index].title %></td>
-                <td class="invert"><%= @items[index].price %></td>
-                <td class="invert">
-                  <%= link_to cart_element_path(cart_elem_id: @cart_items[index].id), method: :delete do %>
-                    <%= content_tag :span, "", :class => "far fa-trash-alt", style: 'color:#000000' %>
-                  <% end %>
-                </td>
+                <td class="invert"><%= item.id %></td>
+                <td class="invert"><%= @ordered_items[(i - 1)].quantity %></td>
+                <td class="invert"><%= item.title %></td>
+                <td class="invert"><%= item.price %></td>
+                <td class="invert"><%= link_to "Buy again", item_path(item.id), style: 'color:#ff3b9f' %></td>
               </tr>
               <% end %>
             </tbody>
           </table>
+        
+        <div class="checkout-left">
+          <div class="col-md-4 checkout-left-basket">              
+            <ul>
+              <li>Total <i>-</i> <span><%= @amount %> €</span></li>
+            </ul>
+          </div>
         </div>
+</div>
       </div>
     </div>
   </div>
